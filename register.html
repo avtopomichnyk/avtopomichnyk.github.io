@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Реєстрація — АвтоПомічник</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-page">
+
+    <header class="auth-header">
+
+        <div class="container">
+
+            <a href="index.html" class="logo">
+                🚗 АвтоПомічник
+            </a>
+
+        </div>
+
+    </header>
+
+
+    <main class="auth-main">
+
+        <div class="auth-container">
+
+            <div class="auth-card">
+
+                <div class="auth-title">
+
+                    <div class="auth-icon">
+                        🚗
+                    </div>
+
+                    <h1>Створіть акаунт</h1>
+
+                    <p>
+                        Додайте свій автомобіль та почніть
+                        вести його історію.
+                    </p>
+
+                </div>
+
+
+                <!-- GOOGLE -->
+                <button class="google-button" type="button">
+
+                    <span class="google-letter">G</span>
+
+                    Продовжити через Google
+
+                </button>
+
+
+                <div class="auth-divider">
+
+                    <span>або</span>
+
+                </div>
+
+
+                <!-- ФОРМА РЕЄСТРАЦІЇ -->
+                <form class="auth-form" id="register-form">
+
+                    <div class="form-group">
+
+                        <label for="name">
+                            Ім'я
+                        </label>
+
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Наприклад, Олександр"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="example@gmail.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Пароль
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder="Мінімум 8 символів"
+                            minlength="8"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="password-confirm">
+                            Повторіть пароль
+                        </label>
+
+                        <input
+                            type="password"
+                            id="password-confirm"
+                            name="password-confirm"
+                            placeholder="Повторіть пароль"
+                            minlength="8"
+                            required
+                        >
+
+                    </div>
+
+
+                    <label class="checkbox-row">
+
+                        <input
+                            type="checkbox"
+                            required
+                        >
+
+                        <span>
+                            Я погоджуюся з
+                            <a href="#">умовами використання</a>
+                            та
+                            <a href="#">політикою конфіденційності</a>
+                        </span>
+
+                    </label>
+
+
+                    <button
+                        type="submit"
+                        class="auth-submit"
+                    >
+                        Створити акаунт
+                    </button>
+
+                </form>
+
+
+                <p class="auth-switch">
+
+                    Уже маєте акаунт?
+
+                    <a href="login.html">
+                        Увійти
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+
+<script src="menu.js"></script>
+</body>
+</html>

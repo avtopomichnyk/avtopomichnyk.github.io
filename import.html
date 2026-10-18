@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Імпорт даних — АвтоПомічник
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body class="import-page">
+
+    <main class="garage-main">
+
+        <div class="container">
+
+            <section class="history-section">
+
+                <div class="maintenance-heading">
+
+                    <div>
+
+                        <p class="garage-label">
+                            АВТОПОМІЧНИК
+                        </p>
+
+                        <h1>
+                            📥 Імпорт даних
+                        </h1>
+
+                        <p>
+                            Завантажте документ від СТО
+                            та додайте виконані роботи
+                            в історію автомобіля.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="import-document-card">
+
+                    <div class="import-document-header">
+
+                        <div>
+
+                            <h2>
+                                Завантаження документа
+                            </h2>
+
+                            <p>
+                                Підтримуються Excel, CSV
+                                та текстові PDF-файли.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="import-file-field">
+
+                        <label for="import-file">
+                            Файл від СТО
+                        </label>
+
+                        <input
+                            type="file"
+                            id="import-file"
+                            accept=".xlsx,.xls,.csv,.pdf,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel,text/csv,application/pdf"
+                        >
+
+                        <small>
+                            XLSX, XLS, CSV або PDF.
+                            Скановані PDF без тексту
+                            додамо у версії 1.1.
+                        </small>
+
+                    </div>
+
+
+                    <div
+                        class="import-file-info"
+                        id="import-file-info"
+                        hidden
+                    >
+
+                        <strong id="import-file-name">
+                            —
+                        </strong>
+
+                        <span id="import-file-size">
+                            —
+                        </span>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        id="read-import-file"
+                        class="export-history-button"
+                        disabled
+                    >
+                        📄 Прочитати документ
+                    </button>
+
+                </div>
+
+
+                <div
+                    class="import-preview-section"
+                    id="import-preview-section"
+                    hidden
+                >
+
+                    <div class="maintenance-heading">
+
+                        <div>
+
+                            <p class="garage-label">
+                                ПОПЕРЕДНІЙ ПЕРЕГЛЯД
+                            </p>
+
+                            <h2>
+                                Знайдені дані
+                            </h2>
+
+                            <p>
+                                Перевірте записи перед
+                                додаванням у АвтоПомічник.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div
+                        class="import-preview"
+                        id="import-preview"
+                    >
+                    </div>
+
+
+                    <div class="import-actions">
+
+                        <button
+                            type="button"
+                            id="cancel-import"
+                            class="secondary-button"
+                        >
+                            Скасувати
+                        </button>
+
+                        <button
+                            type="button"
+                            id="save-import"
+                            class="export-history-button"
+                            disabled
+                        >
+                            ✅ Імпортувати вибрані записи
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"
+    ></script>
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/pdfjs-dist@3.11.174/build/pdf.min.js"
+    ></script>
+
+
+    <script src="script.js"></script>
+
+    <script src="menu.js"></script>
+
+</body>
+
+</html>

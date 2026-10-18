@@ -1,0 +1,6445 @@
+/* ========================================
+   ОСНОВНІ НАЛАШТУВАННЯ
+======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f6f8fc;
+    color: #172033;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+
+/* ========================================
+   ШАПКА
+======================================== */
+
+.header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #e6eaf0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-container {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.logo {
+    font-size: 22px;
+    font-weight: 700;
+    color: #172033;
+    white-space: nowrap;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav a {
+    color: #566074;
+    font-size: 15px;
+    transition: 0.2s;
+}
+
+.nav a:hover {
+    color: #2563eb;
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.login-button {
+    padding: 10px 18px;
+    font-weight: 600;
+}
+
+.register-button {
+    background-color: #2563eb;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+
+/* ========================================
+   ГОЛОВНИЙ БЛОК
+======================================== */
+
+.hero {
+    padding: 90px 0;
+    background:
+        linear-gradient(
+            135deg,
+            #f8fbff 0%,
+            #eef4ff 100%
+        );
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    align-items: center;
+    gap: 80px;
+}
+
+.hero-label {
+    display: inline-block;
+    background-color: #e8f0ff;
+    color: #2563eb;
+    padding: 8px 14px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 58px;
+    line-height: 1.08;
+    letter-spacing: -2px;
+    margin-bottom: 24px;
+}
+
+.hero h1 span {
+    color: #2563eb;
+}
+
+.hero-description {
+    max-width: 650px;
+    font-size: 19px;
+    color: #657086;
+    margin-bottom: 32px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.primary-button {
+    display: inline-block;
+    background-color: #2563eb;
+    color: white;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.primary-button:hover {
+    transform: translateY(-2px);
+}
+
+.secondary-button {
+    display: inline-block;
+    background-color: white;
+    border: 1px solid #d8deea;
+    padding: 14px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+}
+
+.hero-benefits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    color: #647086;
+    font-size: 14px;
+}
+
+
+/* ========================================
+   КАРТКА АВТОМОБІЛЯ
+======================================== */
+
+.hero-card {
+    display: flex;
+    justify-content: center;
+}
+
+.car-card {
+    width: 100%;
+    max-width: 430px;
+    background-color: white;
+    border-radius: 24px;
+    padding: 28px;
+    box-shadow: 0 20px 60px rgba(26, 52, 100, 0.13);
+}
+
+.car-card-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #edf0f5;
+}
+
+.car-icon {
+    width: 52px;
+    height: 52px;
+    background-color: #eaf1ff;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 27px;
+}
+
+.car-card-top p {
+    color: #8a93a3;
+    font-size: 14px;
+}
+
+.car-example {
+    padding: 25px 0;
+}
+
+.car-example h3 {
+    font-size: 24px;
+    margin-bottom: 3px;
+}
+
+.car-example > p {
+    color: #7b8495;
+    margin-bottom: 25px;
+}
+
+.mileage {
+    background-color: #f5f8ff;
+    border-radius: 14px;
+    padding: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mileage span {
+    color: #707b8e;
+    font-size: 14px;
+}
+
+.mileage strong {
+    font-size: 18px;
+}
+
+.next-service {
+    display: grid;
+    gap: 12px;
+}
+
+.next-service div {
+    border: 1px solid #e6eaf0;
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.next-service span {
+    font-size: 14px;
+}
+
+.next-service strong {
+    color: #16a34a;
+    font-size: 13px;
+}
+
+
+/* ========================================
+   ЗАГОЛОВКИ СЕКЦІЙ
+======================================== */
+
+.section-heading {
+    max-width: 680px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.section-heading > p,
+.section-label {
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    line-height: 1.2;
+    margin-bottom: 14px;
+}
+
+.section-heading > span {
+    color: #707a8d;
+    font-size: 17px;
+}
+
+
+/* ========================================
+   МОЖЛИВОСТІ
+======================================== */
+
+.features {
+    padding: 90px 0;
+    background-color: white;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.feature-card {
+    background-color: #f8faff;
+    border: 1px solid #edf0f5;
+    border-radius: 18px;
+    padding: 28px;
+    transition: 0.25s;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(31, 55, 95, 0.08);
+}
+
+.feature-icon {
+    width: 50px;
+    height: 50px;
+    background-color: white;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 25px;
+    margin-bottom: 20px;
+}
+
+.feature-card h3 {
+    margin-bottom: 10px;
+    font-size: 19px;
+}
+
+.feature-card p {
+    color: #6f798c;
+    font-size: 15px;
+}
+
+
+/* ========================================
+   ЯК ЦЕ ПРАЦЮЄ
+======================================== */
+
+.how-it-works {
+    padding: 90px 0;
+}
+
+.steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+}
+
+.step {
+    text-align: center;
+    padding: 25px 15px;
+}
+
+.step > span {
+    width: 52px;
+    height: 52px;
+    margin: 0 auto 20px;
+    border-radius: 50%;
+    background-color: #2563eb;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.step h3 {
+    margin-bottom: 10px;
+}
+
+.step p {
+    color: #727c8e;
+    font-size: 15px;
+}
+
+
+/* ========================================
+   ПРО СЕРВІС
+======================================== */
+
+.about {
+    padding: 90px 0;
+    background-color: #172033;
+    color: white;
+}
+
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+}
+
+.about h2 {
+    font-size: 40px;
+    line-height: 1.2;
+    margin-bottom: 22px;
+}
+
+.about p:not(.section-label) {
+    color: #b8c1d1;
+    margin-bottom: 15px;
+    max-width: 600px;
+}
+
+.device-box {
+    min-height: 280px;
+    background:
+        linear-gradient(
+            135deg,
+            #2563eb,
+            #5b7cff
+        );
+    border-radius: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 35px;
+}
+
+.device-box span {
+    font-size: 80px;
+}
+
+
+/* ========================================
+   ПІДВАЛ
+======================================== */
+
+.footer {
+    background-color: #0f1727;
+    color: white;
+    padding: 55px 0 25px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.footer strong {
+    font-size: 21px;
+}
+
+.footer p {
+    color: #929bad;
+    margin-top: 7px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    color: #b1bac9;
+    font-size: 14px;
+}
+
+.copyright {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto 0;
+    padding-top: 22px;
+    border-top: 1px solid #273146;
+    color: #747f92 !important;
+    font-size: 13px;
+}
+
+
+/* ========================================
+   ПЛАНШЕТИ
+======================================== */
+
+@media (max-width: 900px) {
+
+    .nav {
+        display: none;
+    }
+
+    .hero {
+        padding: 60px 0;
+    }
+
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .hero h1 {
+        font-size: 46px;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .steps {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+}
+
+
+/* ========================================
+   МОБІЛЬНІ ТЕЛЕФОНИ
+======================================== */
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .header-container {
+        min-height: 66px;
+    }
+
+    .logo {
+        font-size: 18px;
+    }
+
+    .login-button {
+        display: none;
+    }
+
+    .register-button {
+        padding: 9px 12px;
+        font-size: 13px;
+    }
+
+    .hero {
+        padding: 45px 0 55px;
+    }
+
+    .hero h1 {
+        font-size: 39px;
+        letter-spacing: -1px;
+    }
+
+    .hero-description {
+        font-size: 17px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+    }
+
+    .primary-button,
+    .secondary-button {
+        text-align: center;
+    }
+
+    .hero-benefits {
+        flex-direction: column;
+        gap: 7px;
+    }
+
+    .car-card {
+        padding: 20px;
+        border-radius: 18px;
+    }
+
+    .mileage {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .next-service div {
+        flex-direction: column;
+    }
+
+    .features,
+    .how-it-works,
+    .about {
+        padding: 65px 0;
+    }
+
+    .section-heading {
+        margin-bottom: 35px;
+    }
+
+    .section-heading h2,
+    .about h2 {
+        font-size: 31px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .steps {
+        grid-template-columns: 1fr;
+    }
+
+    .device-box {
+        min-height: 200px;
+    }
+
+    .device-box span {
+        font-size: 58px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+/* ========================================
+   СТОРІНКИ ВХОДУ ТА РЕЄСТРАЦІЇ
+======================================== */
+
+.auth-page {
+    min-height: 100vh;
+    background:
+        linear-gradient(
+            135deg,
+            #f7faff 0%,
+            #edf3ff 100%
+        );
+}
+
+.auth-header {
+    padding: 25px 0;
+}
+
+.auth-main {
+    padding: 25px 20px 70px;
+}
+
+.auth-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.auth-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 24px;
+    box-shadow: 0 20px 60px rgba(26, 52, 100, 0.10);
+}
+
+.auth-title {
+    text-align: center;
+    margin-bottom: 28px;
+}
+
+.auth-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #eaf1ff;
+    border-radius: 18px;
+
+    font-size: 30px;
+}
+
+.auth-title h1 {
+    font-size: 30px;
+    margin-bottom: 7px;
+}
+
+.auth-title p {
+    color: #747f91;
+    font-size: 15px;
+}
+
+
+/* GOOGLE */
+
+.google-button {
+    width: 100%;
+    min-height: 52px;
+
+    background-color: white;
+
+    border: 1px solid #dce1e9;
+    border-radius: 11px;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    transition: 0.2s;
+}
+
+.google-button:hover {
+    background-color: #f8faff;
+}
+
+.google-letter {
+    font-size: 20px;
+    font-weight: 800;
+    color: #4285f4;
+}
+
+
+/* РОЗДІЛЮВАЧ */
+
+.auth-divider {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin: 25px 0;
+
+    color: #9aa2b1;
+    font-size: 13px;
+}
+
+.auth-divider::before,
+.auth-divider::after {
+    content: "";
+    height: 1px;
+    background-color: #e3e7ed;
+    flex: 1;
+}
+
+
+/* ФОРМА */
+
+.auth-form {
+    display: grid;
+    gap: 18px;
+}
+
+.form-group {
+    display: grid;
+    gap: 7px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    min-height: 50px;
+
+    padding: 0 15px;
+
+    border: 1px solid #dce1e9;
+    border-radius: 10px;
+
+    background-color: white;
+
+    font-size: 15px;
+    color: #172033;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+.form-group input:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+.form-group input::placeholder {
+    color: #a0a8b6;
+}
+
+
+/* CHECKBOX */
+
+.checkbox-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    color: #707a8d;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    cursor: pointer;
+}
+
+.checkbox-row input {
+    margin-top: 3px;
+}
+
+.checkbox-row a {
+    color: #2563eb;
+}
+
+
+/* КНОПКА */
+
+.auth-submit {
+    width: 100%;
+    min-height: 52px;
+
+    border: none;
+    border-radius: 11px;
+
+    background-color: #2563eb;
+    color: white;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.auth-submit:hover {
+    background-color: #1d4ed8;
+    transform: translateY(-1px);
+}
+
+
+/* ПЕРЕХІД НА ВХІД */
+
+.auth-switch {
+    text-align: center;
+
+    margin-top: 25px;
+
+    color: #747f91;
+
+    font-size: 14px;
+}
+
+.auth-switch a {
+    color: #2563eb;
+    font-weight: 700;
+}
+
+
+/* МОБІЛЬНА ВЕРСІЯ */
+
+@media (max-width: 600px) {
+
+    .auth-header {
+        padding: 18px 0;
+    }
+
+    .auth-main {
+        padding: 10px 14px 40px;
+    }
+
+    .auth-card {
+        padding: 28px 20px;
+        border-radius: 18px;
+    }
+
+    .auth-title h1 {
+        font-size: 26px;
+    }
+}
+/* ========================================
+   СТОРІНКА ВХОДУ
+======================================== */
+
+.password-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+}
+
+.forgot-password {
+    color: #2563eb;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+/* ========================================
+   МІЙ ГАРАЖ
+======================================== */
+
+.garage-page {
+    min-height: 100vh;
+    background-color: #f6f8fc;
+}
+
+.garage-header {
+    background-color: white;
+    border-bottom: 1px solid #e7ebf1;
+}
+
+.garage-header-container {
+    min-height: 76px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 20px;
+}
+
+.garage-user-menu {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.logout-button {
+    padding: 10px 17px;
+
+    border: 1px solid #dce1e9;
+    border-radius: 9px;
+
+    background-color: white;
+    color: #172033;
+
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.logout-button:hover {
+    background-color: #f5f7fb;
+}
+
+
+/* ОСНОВНА ЧАСТИНА */
+
+.garage-main {
+    padding: 55px 0;
+}
+
+.garage-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+
+    gap: 30px;
+
+    margin-bottom: 35px;
+}
+
+.garage-label {
+    color: #2563eb;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    letter-spacing: 1px;
+
+    margin-bottom: 8px;
+}
+
+.garage-heading h1 {
+    font-size: 38px;
+
+    margin-bottom: 8px;
+}
+
+.garage-heading > div > p:last-child {
+    color: #747f91;
+}
+
+.add-car-button,
+.empty-add-button {
+    border: none;
+    border-radius: 10px;
+
+    background-color: #2563eb;
+    color: white;
+
+    padding: 14px 21px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.add-car-button:hover,
+.empty-add-button:hover {
+    background-color: #1d4ed8;
+}
+
+
+/* ПОРОЖНІЙ ГАРАЖ */
+
+.empty-garage {
+    min-height: 390px;
+
+    background-color: white;
+
+    border: 1px solid #e7ebf1;
+    border-radius: 20px;
+
+    padding: 50px 25px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+}
+
+.empty-garage-icon {
+    width: 80px;
+    height: 80px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #edf3ff;
+
+    border-radius: 22px;
+
+    font-size: 38px;
+
+    margin-bottom: 22px;
+}
+
+.empty-garage h2 {
+    font-size: 25px;
+
+    margin-bottom: 10px;
+}
+
+.empty-garage p {
+    max-width: 520px;
+
+    color: #747f91;
+
+    line-height: 1.7;
+
+    margin-bottom: 25px;
+}
+
+
+/* МОБІЛЬНА ВЕРСІЯ */
+
+@media (max-width: 650px) {
+
+    .garage-user-menu #user-name {
+        display: none;
+    }
+
+    .garage-main {
+        padding: 35px 0;
+    }
+
+    .garage-heading {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .garage-heading h1 {
+        font-size: 32px;
+    }
+
+    .add-car-button {
+        width: 100%;
+    }
+
+    .empty-garage {
+        min-height: 350px;
+        padding: 35px 20px;
+    }
+}
+/* ========================================
+   ФОРМА ДОДАВАННЯ АВТОМОБІЛЯ
+======================================== */
+
+.car-form-container {
+    max-width: 850px;
+    margin: 40px auto 0;
+
+    padding: 35px;
+
+    background-color: white;
+
+    border: 1px solid #e7ebf1;
+    border-radius: 20px;
+
+    box-shadow: 0 15px 40px rgba(26, 52, 100, 0.08);
+
+    scroll-margin-top: 30px;
+}
+
+.car-form-container h2 {
+    font-size: 26px;
+    margin-bottom: 25px;
+}
+
+
+/* САМА ФОРМА */
+
+#car-form {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 20px;
+}
+
+#car-form label {
+    font-size: 14px;
+    font-weight: 700;
+
+    margin-bottom: -12px;
+}
+
+#car-form input,
+#car-form select {
+    width: 100%;
+    min-height: 50px;
+
+    padding: 0 14px;
+
+    border: 1px solid #dce1e9;
+    border-radius: 10px;
+
+    background-color: white;
+
+    color: #172033;
+    font-size: 15px;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+#car-form input:focus,
+#car-form select:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+
+/* КНОПКИ ФОРМИ */
+
+.car-form-buttons {
+    grid-column: 1 / -1;
+
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 10px;
+}
+
+#cancel-car-button {
+    padding: 13px 20px;
+
+    border: 1px solid #dce1e9;
+    border-radius: 10px;
+
+    background-color: white;
+    color: #172033;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.save-car-button {
+    padding: 13px 22px;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: #2563eb;
+    color: white;
+
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.save-car-button:hover {
+    background-color: #1d4ed8;
+}
+
+
+/* МОБІЛЬНА ВЕРСІЯ ФОРМИ */
+
+@media (max-width: 650px) {
+
+    .car-form-container {
+        padding: 25px 18px;
+        margin-top: 25px;
+    }
+
+    #car-form {
+        grid-template-columns: 1fr;
+    }
+
+    .car-form-buttons {
+        grid-column: 1;
+
+        flex-direction: column-reverse;
+    }
+
+    #cancel-car-button,
+    .save-car-button {
+        width: 100%;
+    }
+}
+.required-star,
+.required-note span {
+    color: #dc2626;
+}
+
+.required-note {
+    margin-top: -15px;
+    margin-bottom: 25px;
+
+    color: #6b7280;
+    font-size: 13px;
+}
+[hidden] {
+    display: none !important;
+}
+/* ========================================
+   СТОРІНКА АВТОМОБІЛЯ
+======================================== */
+
+.car-main {
+    padding: 40px 0 70px;
+}
+
+.back-to-garage {
+    display: inline-block;
+    margin-bottom: 25px;
+
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.back-to-garage:hover {
+    text-decoration: underline;
+}
+
+
+/* ГОЛОВНА КАРТКА АВТОМОБІЛЯ */
+
+.car-details {
+    padding: 32px;
+
+    background: white;
+
+    border: 1px solid #e7ebf1;
+    border-radius: 20px;
+
+    box-shadow: 0 15px 40px rgba(26, 52, 100, 0.08);
+}
+
+.car-details-header {
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+
+    margin-bottom: 30px;
+}
+
+.car-details-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 75px;
+    height: 75px;
+
+    flex-shrink: 0;
+
+    background: #eef4ff;
+    border-radius: 18px;
+
+    font-size: 38px;
+}
+
+.car-details-header h1 {
+    margin: 4px 0 5px;
+
+    font-size: 30px;
+}
+
+.car-details-header p {
+    margin: 0;
+}
+
+
+/* ХАРАКТЕРИСТИКИ */
+
+.car-details-info {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 15px;
+}
+
+.car-details-info p {
+    margin: 0;
+    padding: 16px 18px;
+
+    background: #f7f9fc;
+
+    border-radius: 12px;
+}
+
+
+/* РОЗДІЛИ АВТОМОБІЛЯ */
+
+.car-sections {
+    margin-top: 35px;
+}
+
+.car-sections h2 {
+    margin-bottom: 20px;
+}
+
+.car-section-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+.car-section-card {
+    min-height: 120px;
+    padding: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+
+    gap: 10px;
+
+    background: white;
+
+    border: 1px solid #e7ebf1;
+    border-radius: 16px;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.car-section-card span {
+    color: #172033;
+
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.car-section-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 12px 30px rgba(26, 52, 100, 0.10);
+
+    border-color: #cbd8ef;
+}
+
+
+/* МОБІЛЬНА ВЕРСІЯ */
+
+@media (max-width: 650px) {
+
+    .car-main {
+        padding-top: 25px;
+    }
+
+    .car-details {
+        padding: 22px 18px;
+    }
+
+    .car-details-header {
+        align-items: flex-start;
+    }
+
+    .car-details-icon {
+        width: 60px;
+        height: 60px;
+
+        font-size: 30px;
+    }
+
+    .car-details-header h1 {
+        font-size: 24px;
+    }
+
+    .car-details-info {
+        grid-template-columns: 1fr;
+    }
+
+    .car-section-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+/* ========================================
+   ОБСЛУГОВУВАННЯ АВТОМОБІЛЯ
+======================================== */
+
+.maintenance-section {
+    margin-top: 35px;
+}
+
+.maintenance-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    margin-bottom: 20px;
+}
+
+.maintenance-heading h2 {
+    margin: 5px 0 0;
+}
+
+.add-maintenance-button {
+    padding: 13px 20px;
+
+    border: none;
+    border-radius: 10px;
+
+    background-color: #2563eb;
+    color: white;
+
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.add-maintenance-button:hover {
+    background-color: #1d4ed8;
+}
+
+
+/* ФОРМА ОБСЛУГОВУВАННЯ */
+
+.maintenance-form-container {
+    max-width: 850px;
+    margin: 25px auto 0;
+    padding: 30px;
+
+    background: white;
+
+    border: 1px solid #e7ebf1;
+    border-radius: 20px;
+
+    box-shadow: 0 15px 40px rgba(26, 52, 100, 0.08);
+
+    scroll-margin-top: 30px;
+}
+
+.maintenance-form-container h3 {
+    margin-top: 0;
+    margin-bottom: 20px;
+
+    font-size: 24px;
+}
+
+#maintenance-form {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+
+    align-items: center;
+    gap: 18px 20px;
+}
+
+#maintenance-form label {
+    font-size: 14px;
+    font-weight: 700;
+}
+
+#maintenance-form input,
+#maintenance-form textarea {
+    width: 100%;
+
+    padding: 13px 14px;
+
+    border: 1px solid #dce1e9;
+    border-radius: 10px;
+
+    background: white;
+    color: #172033;
+
+    font: inherit;
+    outline: none;
+}
+
+#maintenance-form textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+#maintenance-form input:focus,
+#maintenance-form textarea:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+#maintenance-form .car-form-buttons {
+    grid-column: 1 / -1;
+}
+
+
+/* МОБІЛЬНА ВЕРСІЯ */
+
+@media (max-width: 650px) {
+
+    .maintenance-heading {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .add-maintenance-button {
+        width: 100%;
+    }
+
+    .maintenance-form-container {
+        padding: 22px 18px;
+    }
+
+    #maintenance-form {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    #maintenance-form label {
+        margin-top: 8px;
+    }
+
+    #maintenance-form .car-form-buttons {
+        grid-column: 1;
+    }
+}
+/* ========================================
+   КАРТКИ ІСТОРІЇ ОБСЛУГОВУВАННЯ
+======================================== */
+
+.maintenance-list {
+    display: grid;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.maintenance-card {
+    padding: 22px 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5eaf1;
+    border-radius: 16px;
+
+    box-shadow: 0 8px 25px rgba(26, 52, 100, 0.06);
+}
+
+.maintenance-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.maintenance-card h3 {
+    margin: 0 0 8px;
+
+    font-size: 20px;
+    color: #172033;
+}
+
+.maintenance-date {
+    margin: 0;
+
+    font-size: 14px;
+    color: #6b7280;
+}
+
+.maintenance-cost {
+    white-space: nowrap;
+
+    font-size: 18px;
+    color: #172033;
+}
+
+.maintenance-info {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+
+    margin-top: 16px;
+
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.maintenance-description {
+    margin: 16px 0 0;
+    padding-top: 16px;
+
+    border-top: 1px solid #edf0f4;
+
+    line-height: 1.6;
+    color: #4b5563;
+}
+
+
+/* КОЛИ ІСТОРІЯ ПОРОЖНЯ */
+
+.maintenance-empty {
+    padding: 30px;
+
+    text-align: center;
+
+    background: #ffffff;
+
+    border: 1px dashed #d7dde7;
+    border-radius: 16px;
+
+    color: #6b7280;
+}
+
+
+/* МОБІЛЬНА ВЕРСІЯ */
+
+@media (max-width: 650px) {
+
+    .maintenance-card {
+        padding: 18px;
+    }
+
+    .maintenance-card-top {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .maintenance-cost {
+        font-size: 16px;
+    }
+}
+/* ========================================
+   ДЕТАЛІ ОБСЛУГОВУВАННЯ
+======================================== */
+
+.maintenance-card-summary {
+    cursor: pointer;
+}
+
+.maintenance-open-text {
+    margin-left: auto;
+
+    color: #2563eb;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+
+/* РОЗГОРНУТА ЧАСТИНА */
+
+.maintenance-details {
+    margin-top: 20px;
+    padding-top: 20px;
+
+    border-top: 1px solid #e5eaf1;
+}
+
+.maintenance-detail-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 8px 0;
+
+    color: #4b5563;
+}
+
+.maintenance-detail-row strong {
+    color: #172033;
+}
+
+.maintenance-detail-description {
+    margin-top: 15px;
+    padding: 16px;
+
+    background: #f7f9fc;
+
+    border-radius: 10px;
+}
+
+.maintenance-detail-description strong {
+    color: #172033;
+}
+
+.maintenance-detail-description p {
+    margin: 8px 0 0;
+
+    line-height: 1.6;
+    color: #4b5563;
+}
+
+
+/* КНОПКИ РЕДАГУВАННЯ І ВИДАЛЕННЯ */
+
+.maintenance-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.edit-maintenance-button,
+.delete-maintenance-button {
+    padding: 10px 16px;
+
+    border-radius: 9px;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+/* РЕДАГУВАТИ */
+
+.edit-maintenance-button {
+    background: #ffffff;
+
+    border: 1px solid #2563eb;
+
+    color: #2563eb;
+}
+
+.edit-maintenance-button:hover {
+    background: #eff6ff;
+}
+
+
+/* ВИДАЛИТИ */
+
+.delete-maintenance-button {
+    background: #ffffff;
+
+    border: 1px solid #dc2626;
+
+    color: #dc2626;
+}
+
+.delete-maintenance-button:hover {
+    background: #fef2f2;
+}
+
+
+/* МОБІЛЬНА ВЕРСІЯ */
+
+@media (max-width: 650px) {
+
+    .maintenance-detail-row {
+        flex-direction: column;
+        gap: 3px;
+    }
+
+    .maintenance-actions {
+        flex-direction: column;
+    }
+
+    .edit-maintenance-button,
+    .delete-maintenance-button {
+        width: 100%;
+    }
+}
+/* ========================================
+   НАЙБЛИЖЧІ ОБСЛУГОВУВАННЯ
+======================================== */
+
+.car-reminders {
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.car-reminders-heading {
+    margin-bottom: 20px;
+}
+
+#car-reminders-list {
+    display: grid;
+    gap: 16px;
+}
+
+.car-reminder-card {
+    background: #ffffff;
+    border-radius: 18px;
+    padding: 22px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.car-reminder-card h3 {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.car-reminder-status {
+    margin-bottom: 14px;
+    font-weight: 700;
+}
+
+.car-reminder-card p {
+    margin: 8px 0;
+    line-height: 1.5;
+}
+
+.car-reminder-actions {
+    margin-top: 18px;
+}
+
+.complete-reminder-button {
+    border: none;
+    border-radius: 10px;
+    padding: 10px 16px;
+    cursor: pointer;
+    font-weight: 700;
+    background: #eef4ff;
+    color: #245eea;
+}
+/* ========================================
+   СТАТУСИ НАГАДУВАНЬ
+======================================== */
+
+.car-reminder-ok {
+    border-left: 5px solid #22c55e;
+}
+
+.car-reminder-soon {
+    border-left: 5px solid #f59e0b;
+}
+
+.car-reminder-overdue {
+    border-left: 5px solid #ef4444;
+}
+
+.car-reminder-ok .car-reminder-status {
+    color: #15803d;
+}
+
+.car-reminder-soon .car-reminder-status {
+    color: #b45309;
+}
+
+.car-reminder-overdue .car-reminder-status {
+    color: #dc2626;
+}
+/* ========================================
+   КНОПКА ОНОВЛЕННЯ ПРОБІГУ
+======================================== */
+
+.car-mileage-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.update-mileage-button {
+    border: 1px solid #2563eb;
+    background: #ffffff;
+    color: #2563eb;
+    padding: 9px 14px;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.update-mileage-button:hover {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+@media (max-width: 600px) {
+    .car-mileage-row {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .update-mileage-button {
+        width: 100%;
+    }
+}
+/* ========================================
+   ФОРМА ОНОВЛЕННЯ ПРОБІГУ
+======================================== */
+
+.update-mileage-form {
+    margin-top: 12px;
+    padding: 16px;
+    background: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    width: 100%;
+}
+
+.update-mileage-form label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: #1e293b;
+}
+
+.update-mileage-form input {
+    width: 100%;
+    padding: 11px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+    font-size: 15px;
+    outline: none;
+}
+
+.update-mileage-form input:focus {
+    border-color: #2563eb;
+}
+
+.update-mileage-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 12px;
+    justify-content: flex-end;
+}
+
+#cancel-mileage-button,
+#save-mileage-button {
+    padding: 9px 14px;
+    border-radius: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+#cancel-mileage-button {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #334155;
+}
+
+#save-mileage-button {
+    background: #2563eb;
+    border: 1px solid #2563eb;
+    color: #ffffff;
+}
+
+@media (max-width: 600px) {
+    .update-mileage-actions {
+        flex-direction: column;
+    }
+
+    #cancel-mileage-button,
+    #save-mileage-button {
+        width: 100%;
+    }
+}
+
+/* ========================================
+   ГЛОБАЛЬНЕ МЕНЮ САЙТУ
+======================================== */
+
+.global-menu-button {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 10px 16px;
+
+    border: 1px solid #dbeafe;
+    border-radius: 12px;
+
+    background: #ffffff;
+    color: #1e40af;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+
+    transition: 0.2s ease;
+}
+
+.global-menu-button:hover {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+
+/* Затемнений фон */
+
+.global-menu-overlay {
+    position: fixed;
+    inset: 0;
+
+    z-index: 2000;
+
+    background: rgba(15, 23, 42, 0.55);
+}
+
+.global-menu-overlay[hidden] {
+    display: none;
+}
+
+
+/* Бокова панель */
+
+.global-menu-panel {
+    width: 320px;
+    max-width: 85%;
+
+    height: 100%;
+    overflow-y: auto;
+overflow-x: hidden;
+
+overscroll-behavior: contain;
+
+    padding: 22px;
+
+    background: #ffffff;
+
+    box-shadow: 10px 0 35px rgba(0, 0, 0, 0.15);
+}
+
+
+/* Верх меню */
+
+.global-menu-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    padding-bottom: 18px;
+    margin-bottom: 18px;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.global-menu-header strong {
+    font-size: 21px;
+    color: #0f172a;
+}
+
+
+/* Кнопка закриття */
+
+.global-menu-close {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #f1f5f9;
+    color: #334155;
+
+    font-size: 18px;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.global-menu-close:hover {
+    background: #e2e8f0;
+}
+
+
+/* Посилання меню */
+
+.global-menu-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.global-menu-nav a {
+    display: block;
+
+    padding: 13px 14px;
+
+    border-radius: 10px;
+
+    color: #334155;
+
+    font-size: 16px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.global-menu-nav a:hover {
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+
+/* Телефон */
+
+@media (max-width: 600px) {
+
+    .global-menu-button {
+        top: 12px;
+        left: 12px;
+
+        padding: 9px 13px;
+
+        font-size: 14px;
+    }
+
+    .global-menu-panel {
+        width: 290px;
+        padding: 18px;
+    }
+
+}
+
+/* ========================================
+   КОРЕКЦІЯ КНОПКИ МЕНЮ
+======================================== */
+
+.global-menu-button {
+    top: -3px;
+    left: 10px;
+    padding: 8px 10px;
+    font-size: 14px;
+}
+
+/* ========================================
+   ДОДАТКОВИЙ БЛОК ГЛОБАЛЬНОГО МЕНЮ
+======================================== */
+
+.global-menu-divider {
+    height: 1px;
+    background: #e2e8f0;
+    margin: 16px 0;
+}
+
+.global-menu-secondary {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.global-menu-secondary a {
+    display: block;
+    padding: 11px 14px;
+
+    border-radius: 10px;
+
+    color: #64748b;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.global-menu-secondary a:hover {
+    background: #f8fafc;
+    color: #2563eb;
+}
+
+/* ========================================
+   СТОРІНКА "ДОПОМОГА"
+======================================== */
+
+.help-page {
+    background: #f4f7fb;
+    min-height: 100vh;
+}
+
+.help-main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 90px 24px 60px;
+}
+
+
+/* Верх сторінки */
+
+.help-hero {
+    margin-bottom: 35px;
+}
+
+.help-hero h1 {
+    margin: 8px 0 12px;
+
+    font-size: 38px;
+    line-height: 1.2;
+
+    color: #172033;
+}
+
+.help-hero > p:last-child {
+    max-width: 650px;
+
+    font-size: 17px;
+    line-height: 1.6;
+
+    color: #64748b;
+}
+
+
+/* Картки допомоги */
+
+.help-content {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.help-card {
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.help-card h2 {
+    margin: 0 0 12px;
+
+    font-size: 21px;
+
+    color: #1e293b;
+}
+
+.help-card p {
+    margin: 0;
+
+    line-height: 1.65;
+
+    color: #64748b;
+}
+
+
+/* Телефон */
+
+@media (max-width: 700px) {
+
+    .help-main {
+        padding:
+            75px 16px 40px;
+    }
+
+    .help-hero h1 {
+        font-size: 30px;
+    }
+
+    .help-content {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+/* ========================================
+   СТОРІНКА "ЗВОРОТНИЙ ЗВ'ЯЗОК"
+======================================== */
+
+.feedback-page {
+    background: #f4f7fb;
+    min-height: 100vh;
+}
+
+.feedback-main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 90px 24px 60px;
+}
+
+
+/* Верх сторінки */
+
+.feedback-hero {
+    margin-bottom: 30px;
+}
+
+.feedback-hero h1 {
+    margin: 8px 0 12px;
+
+    font-size: 38px;
+    line-height: 1.2;
+
+    color: #172033;
+}
+
+.feedback-hero > p:last-child {
+    max-width: 650px;
+
+    font-size: 17px;
+    line-height: 1.6;
+
+    color: #64748b;
+}
+
+
+/* Форма */
+
+.feedback-form-section {
+    max-width: 700px;
+}
+
+.feedback-form {
+    padding: 26px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.feedback-field {
+    margin-bottom: 18px;
+}
+
+.feedback-field label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-weight: 700;
+
+    color: #1e293b;
+}
+
+.feedback-field input,
+.feedback-field textarea {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+
+    font-size: 15px;
+
+    outline: none;
+
+    background: #ffffff;
+
+    box-sizing: border-box;
+}
+
+.feedback-field textarea {
+    resize: vertical;
+    min-height: 150px;
+}
+
+.feedback-field input:focus,
+.feedback-field textarea:focus {
+    border-color: #2563eb;
+}
+
+
+/* Кнопка */
+
+.feedback-submit-button {
+    width: 100%;
+
+    padding: 12px 18px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.feedback-submit-button:hover {
+    background: #1d4ed8;
+}
+
+
+/* Кнопка на сторінці допомоги */
+
+.help-contact-button {
+    display: inline-block;
+
+    margin-top: 16px;
+
+    padding: 10px 16px;
+
+    border-radius: 10px;
+
+    background: #2563eb;
+    color: #ffffff;
+
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.help-contact-button:hover {
+    background: #1d4ed8;
+}
+
+
+/* Телефон */
+
+@media (max-width: 700px) {
+
+    .feedback-main {
+        padding:
+            75px 16px 40px;
+    }
+
+    .feedback-hero h1 {
+        font-size: 30px;
+    }
+
+    .feedback-form {
+        padding: 18px;
+    }
+
+}
+
+/* ========================================
+   ЮРИДИЧНІ СТОРІНКИ
+======================================== */
+
+.legal-page {
+    background: #f4f7fb;
+    min-height: 100vh;
+}
+
+.legal-main {
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 90px 24px 60px;
+}
+
+.legal-hero {
+    margin-bottom: 30px;
+}
+
+.legal-hero h1 {
+    margin: 8px 0 12px;
+    font-size: 38px;
+    line-height: 1.2;
+    color: #172033;
+}
+
+.legal-hero > p:last-child {
+    max-width: 700px;
+    font-size: 17px;
+    line-height: 1.6;
+    color: #64748b;
+}
+
+.legal-content {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.legal-card {
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.legal-card h2 {
+    margin: 0 0 12px;
+    font-size: 20px;
+    color: #1e293b;
+}
+
+.legal-card p {
+    margin: 0;
+    line-height: 1.7;
+    color: #64748b;
+}
+
+
+/* Телефон */
+
+@media (max-width: 700px) {
+
+    .legal-main {
+        padding: 75px 16px 40px;
+    }
+
+    .legal-hero h1 {
+        font-size: 30px;
+    }
+
+    .legal-card {
+        padding: 18px;
+    }
+
+}
+
+/* ========================================
+   СТОРІНКА РЕМОНТІВ
+======================================== */
+
+.repairs-page #car-reminders {
+    display: none;
+}
+
+.repairs-page #maintenance-list {
+    display: none;
+}
+
+.repairs-page #maintenance-form-container {
+    display: none;
+}
+
+.repairs-page #add-maintenance-button {
+    display: none;
+}
+/* Ховаємо весь розділ обслуговування */
+.repairs-page section:has(#maintenance-list) {
+    display: none;
+}
+
+/* Ховаємо оглядові картки автомобіля */
+.repairs-page #car-sections {
+    display: none;
+}
+
+/* ========================================
+   ФОРМА ДОДАВАННЯ РЕМОНТУ
+======================================== */
+
+.repair-form-container {
+    margin-top: 24px;
+}
+
+.repair-form {
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.repair-form h2 {
+    margin: 0 0 22px;
+
+    font-size: 24px;
+
+    color: #172033;
+}
+
+
+/* Сітка полів */
+
+.repair-form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.repair-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.repair-field-full {
+    grid-column: 1 / -1;
+}
+
+
+/* Підписи */
+
+.repair-field label {
+    margin-bottom: 8px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color: #334155;
+}
+
+
+/* Поля */
+
+.repair-field input,
+.repair-field textarea {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    font-size: 15px;
+
+    outline: none;
+
+    box-sizing: border-box;
+}
+
+.repair-field textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.repair-field input:focus,
+.repair-field textarea:focus {
+    border-color: #2563eb;
+}
+
+
+/* Кнопки */
+
+.repair-form-actions {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 22px;
+}
+
+.repair-cancel-button,
+.repair-save-button {
+    padding: 10px 16px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.repair-cancel-button {
+    background: #ffffff;
+
+    border: 1px solid #cbd5e1;
+
+    color: #334155;
+}
+
+.repair-cancel-button:hover {
+    background: #f1f5f9;
+}
+
+.repair-save-button {
+    background: #2563eb;
+
+    border: 1px solid #2563eb;
+
+    color: #ffffff;
+}
+
+.repair-save-button:hover {
+    background: #1d4ed8;
+}
+
+
+/* Телефон */
+
+@media (max-width: 700px) {
+
+    .repair-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .repair-field-full {
+        grid-column: auto;
+    }
+
+    .repair-form {
+        padding: 18px;
+    }
+
+    .repair-form-actions {
+        flex-direction: column;
+    }
+
+    .repair-cancel-button,
+    .repair-save-button {
+        width: 100%;
+    }
+
+}
+
+/* ========================================
+   КАРТКИ ІСТОРІЇ РЕМОНТІВ
+======================================== */
+
+#repairs-list {
+    display: grid;
+    gap: 16px;
+}
+
+.repair-history-card {
+    padding: 22px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.repair-history-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.repair-history-header h3 {
+    margin: 0 0 6px;
+
+    font-size: 20px;
+
+    color: #172033;
+}
+
+.repair-history-header span {
+    font-size: 14px;
+
+    color: #64748b;
+}
+
+.repair-history-header > strong {
+    white-space: nowrap;
+
+    font-size: 18px;
+
+    color: #2563eb;
+}
+
+.repair-history-info {
+    display: grid;
+    gap: 8px;
+}
+
+.repair-history-info p {
+    margin: 0;
+
+    line-height: 1.5;
+
+    color: #475569;
+}
+
+.repair-history-info strong {
+    color: #1e293b;
+}
+
+
+/* Телефон */
+
+@media (max-width: 600px) {
+
+    .repair-history-header {
+        flex-direction: column;
+    }
+
+    .repair-history-card {
+        padding: 18px;
+    }
+
+}
+
+/* ========================================
+   ДІЇ З РЕМОНТОМ
+======================================== */
+
+.repair-history-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 18px;
+    padding-top: 15px;
+
+    border-top: 1px solid #e2e8f0;
+}
+
+.delete-repair-button {
+    padding: 9px 14px;
+
+    border: 1px solid #fecaca;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #dc2626;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.delete-repair-button:hover {
+    background: #fef2f2;
+}
+
+.edit-repair-button {
+    padding: 9px 14px;
+
+    border: 1px solid #bfdbfe;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #2563eb;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.edit-repair-button:hover {
+    background: #eff6ff;
+}
+
+.repair-history-actions {
+    gap: 10px;
+}
+
+/* ========================================
+   СТОРІНКА ОБСЛУГОВУВАННЯ
+======================================== */
+
+/* На сторінці обслуговування
+   не показуємо історію ремонтів */
+.maintenance-page #repairs-section {
+    display: none;
+}
+
+
+/* Не показуємо нижні інформаційні
+   блоки сторінки автомобіля */
+.maintenance-page #car-sections {
+    display: none;
+}
+
+/* ========================================
+   ОГЛЯДОВА СТОРІНКА АВТОМОБІЛЯ
+======================================== */
+
+/* Не показуємо нагадування на оглядовій сторінці */
+.car-overview-page #car-reminders {
+    display: none;
+}
+
+
+/* Не показуємо історію обслуговування */
+.car-overview-page #maintenance-list {
+    display: none;
+}
+
+.car-overview-page #maintenance-form-container {
+    display: none;
+}
+
+.car-overview-page #add-maintenance-button {
+    display: none;
+}
+
+.car-overview-page section:has(#maintenance-list) {
+    display: none;
+}
+
+
+/* Не показуємо історію ремонтів */
+.car-overview-page #repairs-section {
+    display: none;
+}
+
+/* ========================================
+   ФОРМА ДОДАВАННЯ ЗАПРАВКИ
+======================================== */
+
+.refuel-form-container {
+    margin-top: 24px;
+}
+
+.refuel-form {
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.refuel-form h2 {
+    margin: 0 0 22px;
+
+    font-size: 24px;
+
+    color: #172033;
+}
+
+.refuel-form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.refuel-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.refuel-field-full {
+    grid-column: 1 / -1;
+}
+
+.refuel-field label {
+    margin-bottom: 8px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color: #334155;
+}
+
+.refuel-field input,
+.refuel-field select {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    font-size: 15px;
+
+    outline: none;
+
+    box-sizing: border-box;
+}
+
+.refuel-field input:focus,
+.refuel-field select:focus {
+    border-color: #2563eb;
+}
+
+.refuel-form-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 22px;
+}
+
+.refuel-cancel-button,
+.refuel-save-button {
+    padding: 10px 16px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.refuel-cancel-button {
+    background: #ffffff;
+
+    border: 1px solid #cbd5e1;
+
+    color: #334155;
+}
+
+.refuel-cancel-button:hover {
+    background: #f1f5f9;
+}
+
+.refuel-save-button {
+    background: #2563eb;
+
+    border: 1px solid #2563eb;
+
+    color: #ffffff;
+}
+
+.refuel-save-button:hover {
+    background: #1d4ed8;
+}
+
+
+@media (max-width: 700px) {
+
+    .refuel-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .refuel-field-full {
+        grid-column: auto;
+    }
+
+    .refuel-form {
+        padding: 18px;
+    }
+
+    .refuel-form-actions {
+        flex-direction: column;
+    }
+
+    .refuel-cancel-button,
+    .refuel-save-button {
+        width: 100%;
+    }
+
+}
+
+/* ========================================
+   КАРТКИ ІСТОРІЇ ЗАПРАВОК
+======================================== */
+
+#refuels-list {
+    display: grid;
+    gap: 16px;
+}
+
+.refuel-history-card {
+    padding: 22px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.refuel-history-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.refuel-history-header h3 {
+    margin: 0 0 6px;
+
+    font-size: 20px;
+
+    color: #172033;
+}
+
+.refuel-history-header span {
+    font-size: 14px;
+
+    color: #64748b;
+}
+
+.refuel-history-header > strong {
+    white-space: nowrap;
+
+    font-size: 18px;
+
+    color: #2563eb;
+}
+
+.refuel-history-info {
+    display: grid;
+    gap: 8px;
+}
+
+.refuel-history-info p {
+    margin: 0;
+
+    line-height: 1.5;
+
+    color: #475569;
+}
+
+.refuel-history-info strong {
+    color: #1e293b;
+}
+
+
+@media (max-width: 600px) {
+
+    .refuel-history-header {
+        flex-direction: column;
+    }
+
+    .refuel-history-card {
+        padding: 18px;
+    }
+
+}
+
+/* ========================================
+   ДІЇ ІЗ ЗАПРАВКОЮ
+======================================== */
+
+.refuel-history-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 18px;
+    padding-top: 15px;
+
+    border-top: 1px solid #e2e8f0;
+}
+
+.delete-refuel-button {
+    padding: 9px 14px;
+
+    border: 1px solid #fecaca;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #dc2626;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.delete-refuel-button:hover {
+    background: #fef2f2;
+}
+
+.edit-refuel-button {
+    padding: 9px 14px;
+
+    border: 1px solid #bfdbfe;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #2563eb;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+.edit-refuel-button:hover {
+    background: #eff6ff;
+}
+
+.refuel-history-actions {
+    gap: 10px;
+}
+
+/* ========================================
+   ФОРМА ДОДАВАННЯ ВИТРАТИ
+======================================== */
+
+.expense-form-container {
+    margin-top: 24px;
+}
+
+.expense-form {
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.expense-form h2 {
+    margin: 0 0 22px;
+
+    font-size: 24px;
+
+    color: #172033;
+}
+
+.expense-form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.expense-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.expense-field-full {
+    grid-column: 1 / -1;
+}
+
+.expense-field label {
+    margin-bottom: 8px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color: #334155;
+}
+
+.expense-field input,
+.expense-field select,
+.expense-field textarea {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    font-size: 15px;
+
+    outline: none;
+
+    box-sizing: border-box;
+}
+
+.expense-field textarea {
+    resize: vertical;
+    min-height: 130px;
+}
+
+.expense-field input:focus,
+.expense-field select:focus,
+.expense-field textarea:focus {
+    border-color: #2563eb;
+}
+
+.expense-form-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 22px;
+}
+
+.expense-cancel-button,
+.expense-save-button {
+    padding: 10px 16px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.expense-cancel-button {
+    background: #ffffff;
+
+    border: 1px solid #cbd5e1;
+
+    color: #334155;
+}
+
+.expense-cancel-button:hover {
+    background: #f1f5f9;
+}
+
+.expense-save-button {
+    background: #2563eb;
+
+    border: 1px solid #2563eb;
+
+    color: #ffffff;
+}
+
+.expense-save-button:hover {
+    background: #1d4ed8;
+}
+
+
+@media (max-width: 700px) {
+
+    .expense-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .expense-field-full {
+        grid-column: auto;
+    }
+
+    .expense-form {
+        padding: 18px;
+    }
+
+    .expense-form-actions {
+        flex-direction: column;
+    }
+
+    .expense-cancel-button,
+    .expense-save-button {
+        width: 100%;
+    }
+
+}
+
+/* ========================================
+   КАРТКИ ІСТОРІЇ ВИТРАТ
+======================================== */
+
+#expenses-list {
+    display: grid;
+    gap: 16px;
+}
+
+.expense-history-card {
+    padding: 22px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.expense-history-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.expense-history-header h3 {
+    margin: 0 0 6px;
+
+    font-size: 20px;
+
+    color: #172033;
+}
+
+.expense-history-header span {
+    font-size: 14px;
+
+    color: #64748b;
+}
+
+.expense-history-header > strong {
+    white-space: nowrap;
+
+    font-size: 18px;
+
+    color: #2563eb;
+}
+
+.expense-history-info {
+    display: grid;
+    gap: 8px;
+}
+
+.expense-history-info p {
+    margin: 0;
+
+    line-height: 1.5;
+
+    color: #475569;
+}
+
+.expense-history-info strong {
+    color: #1e293b;
+}
+
+
+@media (max-width: 600px) {
+
+    .expense-history-header {
+        flex-direction: column;
+    }
+
+    .expense-history-card {
+        padding: 18px;
+    }
+
+}
+/* ========================================
+   ДІЇ З ВИТРАТОЮ
+======================================== */
+
+.expense-history-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 18px;
+    padding-top: 15px;
+
+    border-top: 1px solid #e2e8f0;
+}
+
+.delete-expense-button {
+    padding: 9px 14px;
+
+    border: 1px solid #fecaca;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #dc2626;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.delete-expense-button:hover {
+    background: #fef2f2;
+}
+
+.edit-expense-button {
+    padding: 9px 14px;
+
+    border: 1px solid #bfdbfe;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #2563eb;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.edit-expense-button:hover {
+    background: #eff6ff;
+}
+
+.expense-history-actions {
+    gap: 10px;
+}
+
+/* ========================================
+   ПОВНА ІСТОРІЯ АВТОМОБІЛЯ
+======================================== */
+
+#history-list {
+    display: grid;
+    gap: 16px;
+}
+
+
+.full-history-card {
+    padding: 22px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+
+.full-history-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    gap: 20px;
+
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+
+    border-bottom: 1px solid #e2e8f0;
+}
+
+
+.full-history-title {
+    display: flex;
+    align-items: flex-start;
+
+    gap: 14px;
+}
+
+
+.full-history-icon {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background: #f1f5f9;
+
+    border-radius: 12px;
+
+    font-size: 22px;
+}
+
+
+.full-history-type {
+    display: inline-block;
+
+    margin-bottom: 3px;
+
+    font-size: 12px;
+    font-weight: 800;
+
+    color: #2563eb;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.7px;
+}
+
+
+.full-history-title h3 {
+    margin: 0 0 5px;
+
+    font-size: 20px;
+
+    color: #172033;
+}
+
+
+.full-history-title p {
+    margin: 0;
+
+    font-size: 14px;
+
+    color: #64748b;
+}
+
+
+.full-history-header > strong {
+    white-space: nowrap;
+
+    font-size: 18px;
+
+    color: #2563eb;
+}
+
+
+.full-history-info {
+    display: grid;
+
+    gap: 8px;
+}
+
+
+.full-history-info p {
+    margin: 0;
+
+    line-height: 1.5;
+
+    color: #475569;
+}
+
+
+.full-history-info strong {
+    color: #1e293b;
+}
+
+
+@media (max-width: 600px) {
+
+    .full-history-header {
+        flex-direction: column;
+    }
+
+
+    .full-history-card {
+        padding: 18px;
+    }
+
+
+    .full-history-header > strong {
+        margin-left: 58px;
+    }
+
+}
+
+/* ========================================
+   ФІЛЬТР ПОВНОЇ ІСТОРІЇ
+======================================== */
+
+.history-filters {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    margin: 0 0 22px;
+}
+
+.history-filter-button {
+    padding: 9px 14px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: #475569;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.history-filter-button:hover {
+    border-color: #2563eb;
+
+    color: #2563eb;
+
+    background: #eff6ff;
+}
+
+.history-filter-button.active {
+    border-color: #2563eb;
+
+    background: #2563eb;
+    color: #ffffff;
+}
+
+
+@media (max-width: 600px) {
+
+    .history-filters {
+        display: grid;
+
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .history-filter-button {
+        width: 100%;
+    }
+
+}
+
+/* ========================================
+   СТАТИСТИКА ІСТОРІЇ
+======================================== */
+
+.history-stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(5, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin-bottom: 22px;
+}
+
+.history-stat-card {
+    padding: 18px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.history-stat-card span {
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #64748b;
+}
+
+.history-stat-card strong {
+    font-size: 20px;
+
+    color: #172033;
+}
+
+.history-stat-total {
+    grid-column: span 5;
+
+    background: #2563eb;
+
+    border-color: #2563eb;
+}
+
+.history-stat-total span {
+    color: #dbeafe;
+}
+
+.history-stat-total strong {
+    color: #ffffff;
+
+    font-size: 26px;
+}
+
+
+@media (max-width: 800px) {
+
+    .history-stats {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+    .history-stat-total {
+        grid-column: span 2;
+    }
+
+}
+
+
+@media (max-width: 500px) {
+
+    .history-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .history-stat-total {
+        grid-column: auto;
+    }
+
+}
+
+/* ========================================
+   АКТИВНИЙ ПУНКТ ГЛОБАЛЬНОГО МЕНЮ
+======================================== */
+
+.global-menu-nav a.active {
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    font-weight: 800;
+
+    border-radius: 10px;
+}
+
+/* ========================================
+   КОРОТКИЙ ОГЛЯД АВТОМОБІЛЯ
+======================================== */
+
+.car-overview-summary {
+    margin-top: 30px;
+    margin-bottom: 38px;
+}
+
+.car-overview-summary h2 {
+    margin: 0 0 20px;
+
+    font-size: 26px;
+    color: #172033;
+}
+
+.car-overview-summary-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+.car-overview-summary-card {
+    display: flex;
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.04);
+}
+
+.car-overview-summary-icon {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background: #eff6ff;
+
+    border-radius: 13px;
+
+    font-size: 23px;
+}
+
+.car-overview-summary-card p {
+    margin: 0 0 4px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #64748b;
+}
+
+.car-overview-summary-card strong {
+    display: block;
+
+    font-size: 17px;
+    line-height: 1.35;
+
+    color: #172033;
+}
+
+
+@media (max-width: 700px) {
+
+    .car-overview-summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .car-overview-summary-card {
+        padding: 17px;
+    }
+
+}
+
+/* ========================================
+   РЕДАГУВАННЯ ДАНИХ АВТОМОБІЛЯ
+======================================== */
+
+.car-details-actions {
+    grid-column: 1 / -1;
+
+    display: flex;
+    justify-content: flex-end;
+
+    margin-top: 8px;
+}
+
+.edit-car-details-button {
+    padding: 10px 16px;
+
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+
+    background: #ffffff;
+    color: #2563eb;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.edit-car-details-button:hover {
+    background: #eff6ff;
+}
+
+/* ========================================
+   ФОРМА РЕДАГУВАННЯ АВТОМОБІЛЯ
+======================================== */
+
+.edit-car-form-container {
+    margin-top: 24px;
+    margin-bottom: 32px;
+}
+
+.edit-car-form {
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+
+    box-shadow:
+        0 8px 25px rgba(0, 0, 0, 0.05);
+}
+
+.edit-car-form h2 {
+    margin: 0 0 22px;
+
+    font-size: 24px;
+    color: #172033;
+}
+
+.edit-car-form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.edit-car-field {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+.edit-car-field-full {
+    grid-column: 1 / -1;
+}
+
+.edit-car-field label {
+    font-size: 14px;
+    font-weight: 700;
+
+    color: #334155;
+}
+
+.edit-car-field input,
+.edit-car-field select {
+    width: 100%;
+
+    box-sizing: border-box;
+
+    padding: 11px 13px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    font-size: 15px;
+
+    color: #172033;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+.edit-car-field input:focus,
+.edit-car-field select:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+.edit-car-form-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 24px;
+}
+
+.edit-car-cancel-button,
+.edit-car-save-button {
+    padding: 11px 18px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.edit-car-cancel-button {
+    border: 1px solid #cbd5e1;
+
+    background: #ffffff;
+    color: #475569;
+}
+
+.edit-car-cancel-button:hover {
+    background: #f8fafc;
+}
+
+.edit-car-save-button {
+    border: none;
+
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.edit-car-save-button:hover {
+    background: #1d4ed8;
+}
+
+.edit-car-save-button:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+@media (max-width: 700px) {
+
+    .edit-car-form {
+        padding: 18px;
+    }
+
+    .edit-car-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .edit-car-field-full {
+        grid-column: auto;
+    }
+
+    .edit-car-form-actions {
+        flex-direction: column-reverse;
+    }
+
+    .edit-car-cancel-button,
+    .edit-car-save-button {
+        width: 100%;
+    }
+
+}
+
+/* ========================================
+   МОБІЛЬНЕ РОЗТАШУВАННЯ КНОПКИ МЕНЮ
+======================================== */
+
+@media (max-width: 700px) {
+
+    body {
+        padding-top: 46px;
+    }
+
+    .global-menu-button {
+        top: 8px;
+        left: 10px;
+    }
+
+}
+
+/* ========================================
+   ПОВНИЙ БАК У ФОРМІ ЗАПРАВКИ
+======================================== */
+
+.refuel-full-tank-field {
+    padding: 14px 16px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+}
+
+.refuel-checkbox-label {
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    margin: 0 !important;
+
+    cursor: pointer;
+}
+
+.refuel-checkbox-label input {
+    width: 18px;
+    height: 18px;
+
+    margin: 0;
+
+    cursor: pointer;
+}
+
+.refuel-checkbox-label span {
+    font-size: 15px;
+    font-weight: 700;
+
+    color: #172033;
+}
+
+.refuel-full-tank-help {
+    display: block;
+
+    margin-top: 7px;
+    margin-left: 28px;
+
+    font-size: 13px;
+    line-height: 1.4;
+
+    color: #64748b;
+}
+
+/* ========================================
+   ПОЗНАЧКА ПОВНОГО БАКА
+======================================== */
+
+.refuel-full-tank-badge {
+    display: inline-flex;
+
+    width: fit-content;
+
+    padding: 6px 10px;
+
+    margin-top: 4px !important;
+
+    background: #ecfdf5;
+
+    border: 1px solid #bbf7d0;
+    border-radius: 999px;
+
+    color: #15803d !important;
+
+    font-size: 13px;
+    font-weight: 800;
+}
+
+/* ========================================
+   СЕРЕДНЯ ВИТРАТА ПАЛЬНО
+======================================== */
+
+.refuel-consumption {
+    width: fit-content;
+
+    margin-top: 6px;
+
+    padding: 10px 12px;
+
+    background: #eff6ff;
+
+    border: 1px solid #bfdbfe;
+    border-radius: 10px;
+
+    color: #1e40af;
+
+    font-size: 14px;
+}
+
+.refuel-consumption strong {
+    color: #1e40af;
+}
+
+.refuel-consumption small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+/* ========================================
+   ЧАСТКА ОБ'ЄМУ БАКА ПРИ ЗАПРАВЦІ
+======================================== */
+
+.refuel-tank-percent {
+    width: fit-content;
+
+    margin-top: 6px;
+
+    padding: 10px 12px;
+
+    background: #f8fafc;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+
+    color: #334155;
+
+    font-size: 14px;
+}
+
+.refuel-tank-percent small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+/* ========================================
+   ОРІЄНТОВНА ВАРТІСТЬ ПОВНОГО БАКА
+======================================== */
+
+.refuel-full-tank-cost {
+    width: fit-content;
+
+    margin-top: 6px;
+
+    padding: 10px 12px;
+
+    background: #fff7ed;
+
+    border: 1px solid #fed7aa;
+    border-radius: 10px;
+
+    color: #9a3412;
+
+    font-size: 14px;
+}
+
+.refuel-full-tank-cost strong {
+    color: #9a3412;
+}
+
+.refuel-full-tank-cost small {
+    display: block;
+
+    margin-top: 4px;
+
+    color: #78716c;
+
+    font-size: 12px;
+}
+
+/* ========================================
+   СТАТИСТИКА ЗАПРАВОК
+======================================== */
+
+.fuel-stats {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, minmax(0, 1fr));
+
+    gap: 14px;
+
+    margin: 22px 0;
+}
+
+.fuel-stat-card {
+    display: flex;
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 18px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+
+    box-shadow:
+        0 6px 20px rgba(0, 0, 0, 0.04);
+}
+
+.fuel-stat-icon {
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    background: #eff6ff;
+
+    border-radius: 11px;
+
+    font-size: 21px;
+}
+
+.fuel-stat-card p {
+    margin: 0 0 4px;
+
+    font-size: 12px;
+    font-weight: 700;
+
+    color: #64748b;
+}
+
+.fuel-stat-card strong {
+    display: block;
+
+    font-size: 17px;
+
+    color: #172033;
+}
+
+
+@media (max-width: 900px) {
+
+    .fuel-stats {
+        grid-template-columns:
+            repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .fuel-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .fuel-stat-card {
+        padding: 16px;
+    }
+
+}
+
+/* ========================================
+   ФОРМА ЗАРЯДЖАННЯ
+======================================== */
+
+.charge-form-container {
+    margin-top: 24px;
+}
+
+.charge-form {
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 18px;
+
+    box-shadow:
+        0 10px 30px rgba(0, 0, 0, 0.06);
+}
+
+.charge-form h2 {
+    margin: 0 0 22px;
+
+    font-size: 24px;
+
+    color: #172033;
+}
+
+.charge-form-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 18px;
+}
+
+.charge-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.charge-field-full {
+    grid-column: 1 / -1;
+}
+
+.charge-field label {
+    margin-bottom: 8px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color: #334155;
+}
+
+.charge-field input,
+.charge-field select,
+.charge-field textarea {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    font-size: 15px;
+
+    outline: none;
+
+    box-sizing: border-box;
+}
+
+.charge-field textarea {
+    resize: vertical;
+
+    min-height: 110px;
+}
+
+.charge-field input:focus,
+.charge-field select:focus,
+.charge-field textarea:focus {
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+.charge-field input[readonly] {
+    background: #f8fafc;
+}
+
+.charge-form-actions {
+    display: flex;
+    justify-content: flex-end;
+
+    gap: 12px;
+
+    margin-top: 22px;
+}
+
+.charge-cancel-button,
+.charge-save-button,
+.add-charge-button {
+    padding: 10px 16px;
+
+    border-radius: 10px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+.charge-cancel-button {
+    background: #ffffff;
+
+    border: 1px solid #cbd5e1;
+
+    color: #334155;
+}
+
+.charge-cancel-button:hover {
+    background: #f1f5f9;
+}
+
+.charge-save-button,
+.add-charge-button {
+    background: #2563eb;
+
+    border: 1px solid #2563eb;
+
+    color: #ffffff;
+}
+
+.charge-save-button:hover,
+.add-charge-button:hover {
+    background: #1d4ed8;
+}
+
+@media (max-width: 700px) {
+
+    .charge-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .charge-field-full {
+        grid-column: auto;
+    }
+
+    .charge-form {
+        padding: 18px;
+    }
+
+    .charge-form-actions {
+        flex-direction: column;
+    }
+
+    .charge-cancel-button,
+    .charge-save-button {
+        width: 100%;
+    }
+
+}
+
+/* ========================================
+   КНОПКИ ЗАПРАВКИ ТА ЗАРЯДЖАННЯ
+======================================== */
+
+#add-refuel-button {
+    margin-left: auto;
+}
+
+#add-charge-button {
+    margin-left: 12px;
+}
+
+
+/* МОБІЛЬНА ВЕРСІЯ */
+
+@media (max-width: 700px) {
+
+    #add-refuel-button,
+    #add-charge-button {
+        width: 100%;
+        margin-left: 0;
+    }
+
+}
+
+/* ========================================
+   ІСТОРІЯ ЗАРЯДЖАНЬ
+======================================== */
+
+.charge-history-section {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 32px auto 0;
+
+    padding: 0 16px 30px;
+
+    box-sizing: border-box;
+}
+
+.charge-history-heading {
+    margin-bottom: 14px;
+}
+
+.charge-history-heading h2 {
+    margin: 4px 0 0;
+
+    font-size: 24px;
+
+    color: #172033;
+}
+
+.charge-history-list {
+    display: grid;
+
+    gap: 16px;
+}
+
+/* ========================================
+   СТАТИСТИКА ЗАРЯДЖАНЬ
+======================================== */
+
+.charge-stats {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: 32px auto 0;
+    padding: 0 16px;
+
+    box-sizing: border-box;
+}
+
+
+.charge-stats h2 {
+    margin-bottom: 16px;
+
+    font-size: 24px;
+
+    color: #172033;
+}
+
+
+.charge-stats-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    gap: 14px;
+}
+
+
+.charge-stat-card {
+    padding: 18px;
+
+    background: white;
+
+    border-radius: 14px;
+
+    box-shadow:
+        0 4px 16px
+        rgba(0, 0, 0, 0.07);
+}
+
+
+.charge-stat-card span {
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+    color: #6b7280;
+}
+
+
+.charge-stat-card strong {
+    font-size: 22px;
+
+    color: #172033;
+}
+
+
+@media (max-width: 900px) {
+
+    .charge-stats-grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .charge-stats-grid {
+        grid-template-columns:
+            1fr;
+    }
+
+}
+
+/* ========================================
+   КНОПКА ВИХОДУ НА ГОЛОВНІЙ
+======================================== */
+
+.header-logout-link {
+    display: inline-block;
+    cursor: pointer;
+}
+
+
+@media (max-width: 600px) {
+
+    .header-buttons
+    .header-logout-link {
+        display: inline-block;
+    }
+
+}
+
+/* ========================================
+   ВІДКРИТЕ БОКОВЕ МЕНЮ
+======================================== */
+
+body.global-menu-open {
+    overflow: hidden;
+}
+
+/* ========================================
+   КАРТКИ АВТОМОБІЛІВ У ГАРАЖІ
+======================================== */
+
+.garage-page #cars-list {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(320px, 1fr)
+        );
+
+    gap: 24px;
+
+    align-items: stretch;
+}
+
+
+.garage-page #cars-list .car-card {
+    width: 100%;
+    max-width: none;
+
+    padding: 24px;
+
+    display: flex;
+    align-items: flex-start;
+
+    gap: 18px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+
+    box-shadow:
+        0 8px 28px
+        rgba(15, 23, 42, 0.07);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.garage-page #cars-list .car-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 14px 35px
+        rgba(15, 23, 42, 0.11);
+}
+
+
+/* Іконка автомобіля */
+
+.garage-page .car-card-icon {
+    width: 56px;
+    height: 56px;
+
+    flex-shrink: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #eff6ff;
+
+    border-radius: 15px;
+
+    font-size: 28px;
+}
+
+
+/* Інформація */
+
+.garage-page .car-card-info {
+    flex: 1;
+
+    min-width: 0;
+}
+
+
+.garage-page .car-card-info h2 {
+    margin: 0 0 5px;
+
+    font-size: 23px;
+
+    color: #172033;
+}
+
+
+.garage-page .car-card-info p {
+    margin: 4px 0;
+
+    color: #64748b;
+
+    font-size: 15px;
+}
+
+
+/* ========================================
+   КНОПКИ КАРТКИ АВТО
+======================================== */
+
+.garage-car-actions {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 9px;
+
+    margin-top: 18px;
+}
+
+
+.garage-car-actions button {
+    min-height: 40px;
+
+    padding: 9px 13px;
+
+    border-radius: 9px;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+/* Відкрити */
+
+.garage-car-actions
+.open-car-button {
+    border: 1px solid #2563eb;
+
+    background: #2563eb;
+    color: #ffffff;
+}
+
+
+.garage-car-actions
+.open-car-button:hover {
+    background: #1d4ed8;
+}
+
+
+/* Редагувати */
+
+.garage-car-actions
+.edit-garage-car-button {
+    border: 1px solid #cbd5e1;
+
+    background: #ffffff;
+    color: #334155;
+}
+
+
+.garage-car-actions
+.edit-garage-car-button:hover {
+    border-color: #2563eb;
+
+    background: #eff6ff;
+    color: #2563eb;
+}
+
+
+/* Видалити */
+
+.garage-car-actions
+.delete-car-button {
+    border: 1px solid #fecaca;
+
+    background: #fff7f7;
+    color: #dc2626;
+}
+
+
+.garage-car-actions
+.delete-car-button:hover {
+    background: #fee2e2;
+
+    border-color: #f87171;
+}
+
+
+/* Під час видалення */
+
+.garage-car-actions
+.delete-car-button:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+/* ========================================
+   ГАРАЖ НА ТЕЛЕФОНІ
+======================================== */
+
+@media (max-width: 650px) {
+
+    .garage-page #cars-list {
+        grid-template-columns: 1fr;
+
+        gap: 16px;
+    }
+
+
+    .garage-page #cars-list .car-card {
+        padding: 19px;
+
+        gap: 14px;
+
+        border-radius: 16px;
+    }
+
+
+    .garage-page .car-card-icon {
+        width: 48px;
+        height: 48px;
+
+        font-size: 23px;
+    }
+
+
+    .garage-page .car-card-info h2 {
+        font-size: 20px;
+    }
+
+
+    .garage-car-actions {
+        flex-direction: column;
+    }
+
+
+    .garage-car-actions button {
+        width: 100%;
+    }
+
+}
+
+/* ========================================
+   ПОТОЧНИЙ АВТОМОБІЛЬ У ГАРАЖІ
+======================================== */
+
+.garage-page
+#cars-list
+.active-car-card {
+    border: 2px solid #22c55e;
+
+    box-shadow:
+        0 10px 32px
+        rgba(34, 197, 94, 0.13);
+}
+
+
+.active-car-badge {
+    display: inline-flex;
+    align-items: center;
+
+    margin-bottom: 9px;
+
+    padding: 5px 10px;
+
+    border-radius: 999px;
+
+    background: #dcfce7;
+    color: #15803d;
+
+    font-size: 12px;
+    font-weight: 800;
+}
+
+/* ========================================
+   ПОТОЧНИЙ АВТОМОБІЛЬ У БОКОВОМУ МЕНЮ
+======================================== */
+
+.global-menu-current-car {
+    margin: 8px 0 4px;
+
+    padding: 14px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+
+    background: #f0fdf4;
+
+    border: 1px solid #bbf7d0;
+    border-radius: 12px;
+}
+
+
+.global-menu-current-car span {
+    color: #15803d;
+
+    font-size: 10px;
+    font-weight: 800;
+
+    letter-spacing: 0.8px;
+}
+
+
+.global-menu-current-car strong {
+    color: #172033;
+
+    font-size: 15px;
+
+    line-height: 1.35;
+}
+
+
+.global-menu-current-car small {
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+/* ========================================
+   ВИДАЛЕННЯ АВТОМОБІЛЯ
+   У ФОРМІ РЕДАГУВАННЯ
+======================================== */
+
+.delete-current-car-button {
+    width: 100%;
+
+    margin-top: 24px;
+
+    padding: 12px 18px;
+
+    border: 1px solid #fecaca;
+    border-radius: 10px;
+
+    background: #fff7f7;
+    color: #dc2626;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.delete-current-car-button:hover {
+    background: #fee2e2;
+
+    border-color: #f87171;
+}
+
+
+.delete-current-car-button:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+/* ========================================
+   КНОПКА ВИДАЛЕННЯ АВТОМОБІЛЯ
+   У ФОРМІ РЕДАГУВАННЯ
+======================================== */
+
+#edit-car-form
+#delete-current-car-button {
+    width: 100%;
+
+    margin-top: 24px;
+    padding: 13px 18px;
+
+    border: 1px solid #fecaca;
+    border-radius: 11px;
+
+    background: #fff7f7;
+    color: #dc2626;
+
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+#edit-car-form
+#delete-current-car-button:hover {
+    background: #fee2e2;
+
+    border-color: #f87171;
+
+    color: #b91c1c;
+
+    transform: translateY(-1px);
+}
+
+
+#edit-car-form
+#delete-current-car-button:active {
+    transform: translateY(0);
+}
+
+
+#edit-car-form
+#delete-current-car-button:disabled {
+    opacity: 0.55;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+/* ========================================
+   СЕРЕДНЯ ВИТРАТА — КІЛЬКА ВИДІВ ПАЛЬНОГО
+======================================== */
+
+#fuel-average-consumption {
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 700;
+}
+
+.fuel-stat-card {
+    align-items: center;
+}
+
+@media (max-width: 900px) {
+
+    #fuel-average-consumption {
+        font-size: 15px;
+    }
+
+}
+
+/* ========================================
+   ФОТО АВТОМОБІЛЯ У ФОРМІ РЕДАГУВАННЯ
+======================================== */
+
+.edit-car-photo-field {
+    margin: 20px 0 26px;
+
+    padding: 20px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+}
+
+
+.edit-car-photo-field label {
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color: #172033;
+}
+
+
+.edit-car-photo-preview {
+    width: 150px;
+    height: 110px;
+
+    margin-bottom: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background: #ffffff;
+
+    border: 1px dashed #cbd5e1;
+    border-radius: 12px;
+
+    font-size: 42px;
+}
+
+
+.edit-car-photo-preview img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+#edit-car-photo {
+    display: block;
+
+    width: 100%;
+
+    margin-bottom: 8px;
+}
+
+
+.edit-car-photo-field small {
+    color: #64748b;
+
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+/* ========================================
+   ФОТО АВТОМОБІЛЯ НА СТОРІНЦІ АВТО
+======================================== */
+
+.car-details-photo {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: inherit;
+}
+
+/* ========================================
+   ФОТО АВТОМОБІЛЯ В ГАРАЖІ
+======================================== */
+
+.garage-page .car-card-icon {
+    overflow: hidden;
+}
+
+.garage-page .car-card-icon img {
+    width: 100%;
+    height: 100%;
+
+    display: block;
+
+    object-fit: cover;
+
+    border-radius: inherit;
+}
+
+/* ========================================
+   КНОПКИ ФОТО АВТОМОБІЛЯ
+======================================== */
+
+/* Кнопка "Вибрати файл" */
+#edit-car-photo {
+    margin-top: 4px;
+    margin-bottom: 10px;
+
+    font-size: 14px;
+    color: #475569;
+}
+
+
+/* Сама кнопка всередині input type="file" */
+#edit-car-photo::file-selector-button {
+    margin-right: 12px;
+
+    padding: 9px 16px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #16a34a;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+#edit-car-photo::file-selector-button:hover {
+    background: #15803d;
+}
+
+
+#edit-car-photo::file-selector-button:active {
+    transform: scale(0.97);
+}
+
+
+/* Кнопка "Видалити фото" */
+.delete-car-photo-button {
+    margin-top: 14px;
+
+    padding: 10px 16px;
+
+    border: 1px solid #fecaca;
+    border-radius: 9px;
+
+    background: #fff1f2;
+    color: #dc2626;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.delete-car-photo-button:hover {
+    background: #fee2e2;
+    border-color: #fca5a5;
+}
+
+
+.delete-car-photo-button:active {
+    transform: scale(0.97);
+}
+
+
+.delete-car-photo-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* Телефон */
+@media (max-width: 600px) {
+
+    #edit-car-photo::file-selector-button {
+        padding: 10px 14px;
+    }
+
+    .delete-car-photo-button {
+        width: 100%;
+    }
+
+}
+
+/* Акуратне розташування підказки та кнопки видалення фото */
+
+.edit-car-photo-field small {
+    display: block;
+    margin-top: 8px;
+}
+
+.delete-car-photo-button {
+    display: block;
+    margin-top: 14px;
+}
+
+/* ========================================
+   ПОКАЗ / СХОВАТИ ПАРОЛЬ НА LOGIN.HTML
+======================================== */
+
+.password-input-wrapper {
+    position: relative;
+}
+
+
+.password-input-wrapper input {
+    width: 100%;
+
+    padding-right: 95px;
+}
+
+
+.toggle-password-button {
+    position: absolute;
+
+    top: 50%;
+    right: 10px;
+
+    transform: translateY(-50%);
+
+    padding: 6px 10px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #eef2f7;
+    color: #334155;
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease;
+}
+
+
+.toggle-password-button:hover {
+    background: #e2e8f0;
+    color: #0f172a;
+}
+
+
+.toggle-password-button:active {
+    transform:
+        translateY(-50%)
+        scale(0.97);
+}
+
+/* ========================================
+   ЕКСПОРТ ДАНИХ
+======================================== */
+
+.history-export {
+    margin-bottom: 24px;
+
+    padding: 20px;
+
+    background: #f8fafc;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+}
+
+
+.history-export-text {
+    display: flex;
+    flex-direction: column;
+
+    gap: 4px;
+
+    margin-bottom: 18px;
+}
+
+
+.history-export-text strong {
+    font-size: 18px;
+
+    color: #0f172a;
+}
+
+
+.history-export-text span {
+    font-size: 14px;
+
+    color: #64748b;
+}
+
+
+/* ========================================
+   ПЕРІОД
+======================================== */
+
+.history-export-options {
+    display: flex;
+    flex-direction: column;
+
+    gap: 18px;
+
+    margin-bottom: 20px;
+}
+
+
+.history-export-period {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+
+    max-width: 260px;
+}
+
+
+.history-export-period label,
+.history-export-date-range label {
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #334155;
+}
+
+
+.history-export-period select,
+.history-export-date-range input {
+    width: 100%;
+
+    padding: 10px 12px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #0f172a;
+
+    font-size: 14px;
+}
+
+
+.history-export-date-range {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+
+    max-width: 540px;
+}
+
+
+.history-export-date-range[hidden] {
+    display: none;
+}
+
+
+.history-export-date-range > div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+/* ========================================
+   ЯКІ ДАНІ ЕКСПОРТУВАТИ
+======================================== */
+
+.history-export-data {
+    margin: 0;
+
+    padding: 16px;
+
+    border: 1px solid #dbe4ee;
+    border-radius: 12px;
+
+    background: #ffffff;
+}
+
+
+.history-export-data legend {
+    padding: 0 8px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    color: #334155;
+}
+
+
+.history-export-data label {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    margin: 10px 0;
+
+    font-size: 14px;
+
+    color: #334155;
+
+    cursor: pointer;
+}
+
+
+.history-export-data input[type="checkbox"] {
+    width: 17px;
+    height: 17px;
+
+    cursor: pointer;
+}
+
+
+/* ========================================
+   КНОПКИ ЕКСПОРТУ
+======================================== */
+
+.history-export-buttons {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 10px;
+}
+
+
+.export-history-button {
+    padding: 10px 16px;
+
+    border: none;
+    border-radius: 9px;
+
+    background: #16a34a;
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+.export-history-button:hover {
+    background: #15803d;
+}
+
+
+.export-history-button:active {
+    transform: scale(0.97);
+}
+
+
+.export-history-pdf-button {
+    background: #2563eb;
+}
+
+
+.export-history-pdf-button:hover {
+    background: #1d4ed8;
+}
+
+
+/* ========================================
+   МОБІЛЬНА ВЕРСІЯ
+======================================== */
+
+@media (max-width: 600px) {
+
+    .history-export {
+        padding: 16px;
+    }
+
+
+    .history-export-date-range {
+        grid-template-columns: 1fr;
+    }
+
+
+    .history-export-buttons {
+        flex-direction: column;
+    }
+
+
+    .export-history-button {
+        width: 100%;
+    }
+
+}
+
+/* ========================================
+   ПОПЕРЕДНІЙ ПЕРЕГЛЯД ІМПОРТУ
+======================================== */
+
+.import-table-wrapper {
+    width: 100%;
+
+    overflow-x: auto;
+
+    margin-top: 16px;
+
+    border: 1px solid #dbe4ee;
+    border-radius: 10px;
+}
+
+
+.import-table {
+    width: 100%;
+
+    border-collapse: collapse;
+
+    background: #ffffff;
+
+    font-size: 13px;
+}
+
+
+.import-table th,
+.import-table td {
+    padding: 9px 10px;
+
+    border: 1px solid #e2e8f0;
+
+    text-align: left;
+
+    white-space: nowrap;
+}
+
+
+.import-table th {
+    background: #f1f5f9;
+
+    color: #0f172a;
+
+    font-weight: 700;
+}
+
+
+.import-table td {
+    color: #334155;
+}
+
+
+.import-preview-note {
+    margin-top: 10px;
+
+    font-size: 13px;
+
+    color: #64748b;
+}
+
+/* ========================================
+   ЗАПИСИ ДЛЯ ІМПОРТУ
+======================================== */
+
+.import-record-card {
+    margin-bottom: 16px;
+
+    padding: 16px;
+
+    background: #ffffff;
+
+    border: 1px solid #dbe4ee;
+    border-radius: 12px;
+}
+
+
+.import-record-select {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 14px;
+}
+
+
+.import-record-select input {
+    width: 18px;
+    height: 18px;
+}
+
+
+.import-record-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 14px;
+}
+
+
+.import-record-grid > div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 6px;
+}
+
+
+.import-record-wide {
+    grid-column: 1 / -1;
+}
+
+
+.import-record-grid label {
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #334155;
+}
+
+
+.import-record-grid input,
+.import-record-grid select,
+.import-record-grid textarea {
+    width: 100%;
+
+    padding: 9px 10px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    font: inherit;
+}
+
+
+.import-record-grid textarea {
+    resize: vertical;
+}
+
+
+@media (max-width: 600px) {
+
+    .import-record-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .import-record-wide {
+        grid-column: auto;
+    }
+
+}
+
+/* ========================================
+   ПОПЕРЕДНІЙ ПЕРЕГЛЯД PDF
+======================================== */
+
+.import-pdf-page {
+    margin-bottom: 18px;
+
+    padding: 16px;
+
+    background: #ffffff;
+
+    border: 1px solid #dbe4ee;
+    border-radius: 12px;
+}
+
+
+.import-pdf-page h3 {
+    margin-bottom: 12px;
+
+    font-size: 15px;
+
+    color: #0f172a;
+}
+
+
+.import-pdf-page p {
+    margin: 4px 0;
+
+    font-size: 13px;
+    line-height: 1.5;
+
+    color: #334155;
+}
+
+/* ========================================
+   СТОРІНКА ІМПОРТУ
+======================================== */
+
+.import-page .history-section {
+    max-width: 1160px;
+    margin: 0 auto;
+}
+
+
+/* ========================================
+   КАРТКА ЗАВАНТАЖЕННЯ ФАЙЛУ
+======================================== */
+
+.import-document-card {
+    margin-top: 24px;
+    margin-bottom: 28px;
+
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #dbe4ee;
+    border-radius: 16px;
+
+    box-shadow:
+        0 4px 18px
+        rgba(15, 23, 42, 0.05);
+}
+
+
+.import-document-header {
+    margin-bottom: 20px;
+}
+
+
+.import-document-header h2 {
+    margin-bottom: 5px;
+
+    font-size: 21px;
+
+    color: #0f172a;
+}
+
+
+.import-document-header p {
+    color: #64748b;
+
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   ВИБІР ФАЙЛУ
+======================================== */
+
+.import-file-field {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+
+    margin-bottom: 16px;
+}
+
+
+.import-file-field > label {
+    font-size: 14px;
+    font-weight: 700;
+
+    color: #334155;
+}
+
+
+#import-file {
+    width: 100%;
+
+    padding: 8px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 10px;
+
+    background: #f8fafc;
+
+    color: #475569;
+
+    font-size: 14px;
+}
+
+
+#import-file::file-selector-button {
+    margin-right: 12px;
+
+    padding: 9px 15px;
+
+    border: none;
+    border-radius: 8px;
+
+    background: #e2e8f0;
+    color: #0f172a;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+
+#import-file::file-selector-button:hover {
+    background: #cbd5e1;
+}
+
+
+#import-file::file-selector-button:active {
+    transform: scale(0.98);
+}
+
+
+.import-file-field small {
+    display: block;
+
+    color: #64748b;
+
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* ========================================
+   ІНФОРМАЦІЯ ПРО ВИБРАНИЙ ФАЙЛ
+======================================== */
+
+.import-file-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 12px;
+
+    margin-bottom: 16px;
+
+    padding: 12px 14px;
+
+    background: #f1f5f9;
+
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+}
+
+
+.import-file-info[hidden] {
+    display: none;
+}
+
+
+#import-file-name {
+    overflow: hidden;
+
+    color: #0f172a;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+
+#import-file-size {
+    flex-shrink: 0;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* ========================================
+   КНОПКА ПРОЧИТАТИ ДОКУМЕНТ
+======================================== */
+
+#read-import-file {
+    min-width: 210px;
+
+    padding: 11px 18px;
+}
+
+
+#read-import-file:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+
+/* ========================================
+   ПОПЕРЕДНІЙ ПЕРЕГЛЯД
+======================================== */
+
+.import-preview-section {
+    margin-top: 24px;
+}
+
+
+.import-preview-section[hidden] {
+    display: none;
+}
+
+
+.import-preview-section > .maintenance-heading {
+    margin-bottom: 18px;
+}
+
+
+.import-preview {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+}
+
+
+/* ========================================
+   КАРТКА ОДНОГО ЗАПИСУ
+======================================== */
+
+.import-record-card {
+    margin-bottom: 0;
+
+    padding: 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #dbe4ee;
+    border-radius: 14px;
+
+    box-shadow:
+        0 3px 14px
+        rgba(15, 23, 42, 0.04);
+}
+
+
+.import-record-select {
+    display: flex;
+    align-items: center;
+
+    gap: 9px;
+
+    margin-bottom: 18px;
+
+    color: #0f172a;
+}
+
+
+.import-record-select strong {
+    font-size: 16px;
+}
+
+
+.import-record-select input {
+    width: 18px;
+    height: 18px;
+
+    accent-color: #2563eb;
+
+    cursor: pointer;
+}
+
+
+.import-record-grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(2, minmax(0, 1fr));
+
+    gap: 16px;
+}
+
+
+.import-record-grid > div {
+    display: flex;
+    flex-direction: column;
+
+    gap: 7px;
+}
+
+
+.import-record-wide {
+    grid-column: 1 / -1;
+}
+
+
+.import-record-grid label {
+    font-size: 13px;
+    font-weight: 700;
+
+    color: #334155;
+}
+
+
+.import-record-grid input,
+.import-record-grid select,
+.import-record-grid textarea {
+    width: 100%;
+
+    padding: 11px 12px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 9px;
+
+    background: #ffffff;
+    color: #0f172a;
+
+    font: inherit;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+.import-record-grid input:focus,
+.import-record-grid select:focus,
+.import-record-grid textarea:focus {
+    outline: none;
+
+    border-color: #2563eb;
+
+    box-shadow:
+        0 0 0 3px
+        rgba(37, 99, 235, 0.1);
+}
+
+
+.import-record-grid textarea {
+    min-height: 80px;
+
+    resize: vertical;
+}
+
+
+/* ========================================
+   КНОПКИ ВНИЗУ
+======================================== */
+
+.import-actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 20px;
+    margin-bottom: 30px;
+
+    padding: 16px;
+
+    background: #ffffff;
+
+    border: 1px solid #dbe4ee;
+    border-radius: 12px;
+}
+
+
+#import-actions {
+    width: 100%;
+}
+
+
+#cancel-import,
+#save-import {
+    min-height: 42px;
+
+    padding: 10px 18px;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 700;
+
+    cursor: pointer;
+}
+
+
+#cancel-import {
+    border: 1px solid #cbd5e1;
+
+    background: #ffffff;
+    color: #334155;
+}
+
+
+#cancel-import:hover {
+    background: #f1f5f9;
+}
+
+
+#save-import {
+    border: none;
+
+    background: #16a34a;
+    color: #ffffff;
+}
+
+
+#save-import:hover {
+    background: #15803d;
+}
+
+
+#save-import:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+
+/* ========================================
+   МОБІЛЬНА ВЕРСІЯ ІМПОРТУ
+======================================== */
+
+@media (max-width: 700px) {
+
+    .import-document-card {
+        padding: 16px;
+    }
+
+
+    .import-file-info {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+
+    #import-file-name {
+        width: 100%;
+
+        white-space: normal;
+        overflow-wrap: anywhere;
+    }
+
+
+    #read-import-file {
+        width: 100%;
+    }
+
+
+    .import-record-card {
+        padding: 16px;
+    }
+
+
+    .import-record-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    .import-record-wide {
+        grid-column: auto;
+    }
+
+
+    .import-actions {
+        flex-direction: column-reverse;
+    }
+
+
+    #cancel-import,
+    #save-import {
+        width: 100%;
+    }
+
+}

@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Автомобіль — АвтоПомічник</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="car-page car-overview-page">
+
+    <header class="garage-header">
+
+        <div class="container garage-header-container">
+
+            <a href="garage.html" class="logo">
+                🚗 АвтоПомічник
+            </a>
+
+            <div class="garage-user-menu">
+
+                <span id="user-name">
+                    Користувач
+                </span>
+
+                <button
+                    type="button"
+                    class="logout-button"
+                    id="logout-button"
+                >
+                    Вийти
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="car-main">
+
+        <div class="container">
+
+            <a href="garage.html" class="back-to-garage">
+                ← Назад до гаража
+            </a>
+
+
+            <!-- ДАНІ АВТОМОБІЛЯ -->
+
+            <section class="car-details" id="car-details">
+
+                <p>
+                    Завантаження автомобіля...
+                </p>
+
+            </section>
+
+            <!-- ФОРМА РЕДАГУВАННЯ АВТОМОБІЛЯ -->
+
+<div
+    class="edit-car-form-container"
+    id="edit-car-form-container"
+    hidden
+>
+
+    <form
+        class="edit-car-form"
+        id="edit-car-form"
+    >
+
+        <h2>
+            Редагування автомобіля
+        </h2>
+
+<div class="edit-car-photo-field">
+
+    <label for="edit-car-photo">
+        Фото автомобіля
+    </label>
+
+    <div
+        class="edit-car-photo-preview"
+        id="edit-car-photo-preview"
+    >
+        🚙
+    </div>
+
+    <input
+        type="file"
+        id="edit-car-photo"
+        accept="image/jpeg,image/png,image/webp"
+    >
+
+    <small>
+        JPG, PNG або WEBP. Максимум 5 МБ.
+    </small>
+
+<button
+    type="button"
+    id="delete-car-photo-button"
+    class="delete-car-photo-button"
+    hidden
+>
+    🗑 Видалити фото
+</button>    
+
+</div>
+
+        <div class="edit-car-form-grid">
+
+
+            <div class="edit-car-field">
+
+                <label for="edit-car-name">
+                    Назва автомобіля *
+                </label>
+
+                <input
+                    type="text"
+                    id="edit-car-name"
+                    required
+                >
+
+            </div>
+
+
+            <div class="edit-car-field">
+
+                <label for="edit-car-make">
+                    Марка *
+                </label>
+
+                <input
+                    type="text"
+                    id="edit-car-make"
+                    required
+                >
+
+            </div>
+
+
+            <div class="edit-car-field">
+
+                <label for="edit-car-model">
+                    Модель *
+                </label>
+
+                <input
+                    type="text"
+                    id="edit-car-model"
+                    required
+                >
+
+            </div>
+
+
+            <div class="edit-car-field">
+
+                <label for="edit-car-year">
+                    Рік
+                </label>
+
+                <input
+                    type="number"
+                    id="edit-car-year"
+                    min="1900"
+                    max="2100"
+                >
+
+            </div>
+
+
+            <div class="edit-car-field">
+
+                <label for="edit-car-engine">
+                    Двигун
+                </label>
+
+                <input
+                    type="text"
+                    id="edit-car-engine"
+                    placeholder="Наприклад: 1.9 TDI"
+                >
+
+            </div>
+
+            <div class="edit-car-field">
+
+    <label for="edit-car-tank-capacity">
+        Об’єм паливного бака, л
+    </label>
+
+    <input
+        type="number"
+        id="edit-car-tank-capacity"
+        min="1"
+        step="0.1"
+        placeholder="Наприклад: 60"
+    >
+
+</div>
+
+<div class="edit-car-field">
+
+    <label for="edit-car-lpg-tank-capacity">
+        Об’єм газового балона, л
+    </label>
+
+    <input
+        type="number"
+        id="edit-car-lpg-tank-capacity"
+        min="1"
+        step="0.1"
+        placeholder="Наприклад: 42"
+    >
+
+</div>
+
+<div class="edit-car-field">
+
+    <label for="edit-car-battery-capacity">
+        Ємність батареї, кВт·год
+    </label>
+
+    <input
+        type="number"
+        id="edit-car-battery-capacity"
+        min="0.1"
+        step="0.1"
+        placeholder="Наприклад: 64"
+    >
+
+</div>
+
+
+            <div class="edit-car-field">
+
+                <label for="edit-car-fuel">
+                    Тип пального
+                </label>
+
+                <select
+    id="edit-car-fuel"
+>
+
+    <option value="">
+        Не вказано
+    </option>
+
+    <option value="petrol">
+        Бензин
+    </option>
+
+    <option value="diesel">
+        Дизель
+    </option>
+
+    <option value="lpg">
+        Газ
+    </option>
+
+    <option value="petrol_lpg">
+        Бензин + газ
+    </option>
+
+    <option value="hybrid">
+        Гібрид HEV
+    </option>
+
+    <option value="phev">
+        Plug-in Hybrid PHEV
+    </option>
+
+    <option value="electric">
+        Електро
+    </option>
+
+</select>
+
+            </div>
+
+
+            <div class="edit-car-field">
+
+                <label for="edit-car-transmission">
+                    Коробка передач
+                </label>
+
+                <select id="edit-car-transmission">
+
+                    <option value="">
+                        Не вказано
+                    </option>
+
+                    <option value="Механічна">
+                        Механічна
+                    </option>
+
+                    <option value="Автоматична">
+                        Автоматична
+                    </option>
+
+                    <option value="Робот">
+                        Робот
+                    </option>
+
+                    <option value="Варіатор">
+                        Варіатор
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="edit-car-field">
+
+                <label for="edit-car-license-plate">
+                    Державний номер
+                </label>
+
+                <input
+                    type="text"
+                    id="edit-car-license-plate"
+                    placeholder="Наприклад: AA1234BB"
+                >
+
+            </div>
+
+
+            <div class="edit-car-field edit-car-field-full">
+
+                <label for="edit-car-vin">
+                    VIN
+                </label>
+
+                <input
+                    type="text"
+                    id="edit-car-vin"
+                    maxlength="17"
+                    placeholder="17 символів"
+                >
+
+            </div>
+
+
+        </div>
+
+
+        <div class="edit-car-form-actions">
+
+            <button
+                type="button"
+                class="edit-car-cancel-button"
+                id="cancel-edit-car-button"
+            >
+                Скасувати
+            </button>
+
+
+            <button
+                type="submit"
+                class="edit-car-save-button"
+                id="save-edit-car-button"
+            >
+                Зберегти зміни
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+
+            <!-- РОЗДІЛИ АВТОМОБІЛЯ -->
+           <!-- ОБСЛУГОВУВАННЯ АВТОМОБІЛЯ -->
+
+           <!-- НАГАДУВАННЯ АВТОМОБІЛЯ -->
+
+<section
+    class="car-reminders"
+    id="car-reminders"
+    hidden
+>
+
+    <div class="car-reminders-heading">
+        <p class="garage-label">
+            КОНТРОЛЬ ОБСЛУГОВУВАННЯ
+        </p>
+
+        <h2>
+            🔔 Найближчі обслуговування
+        </h2>
+    </div>
+
+    <div id="car-reminders-list">
+    </div>
+
+</section>
+
+           <section class="maintenance-section" id="maintenance-section">
+
+    <div class="maintenance-heading">
+
+        <div>
+            <p class="garage-label">
+                ІСТОРІЯ ОБСЛУГОВУВАННЯ
+            </p>
+
+            <h2>Обслуговування</h2>
+        </div>
+
+        <button
+            type="button"
+            class="add-maintenance-button"
+            id="add-maintenance-button"
+        >
+            + Додати обслуговування
+        </button>
+
+    </div>
+
+
+    <!-- Тут пізніше з'являться записи з Supabase -->
+
+    <div
+        class="maintenance-list"
+        id="maintenance-list"
+    >
+    </div>
+
+
+    <!-- ФОРМА ДОДАВАННЯ ОБСЛУГОВУВАННЯ -->
+
+    <div
+        class="maintenance-form-container"
+        id="maintenance-form-container"
+        hidden
+    >
+
+        <h3 id="maintenance-form-title">
+    Нове обслуговування
+</h3>
+
+        <p class="required-note">
+            <span>*</span> — обов'язкові поля
+        </p>
+
+        <form id="maintenance-form">
+
+            <label for="maintenance-title">
+                Назва роботи
+                <span class="required-star">*</span>
+            </label>
+
+            <input
+                type="text"
+                id="maintenance-title"
+                placeholder="Наприклад: Заміна моторної оливи"
+                required
+            >
+
+
+            <label for="maintenance-date">
+                Дата
+                <span class="required-star">*</span>
+            </label>
+
+            <input
+                type="date"
+                id="maintenance-date"
+                required
+            >
+
+
+            <label for="maintenance-mileage">
+                Пробіг, км
+            </label>
+
+            <input
+                type="number"
+                id="maintenance-mileage"
+                placeholder="Наприклад: 247000"
+                min="0"
+            >
+
+
+            <label for="maintenance-cost">
+                Вартість, грн
+            </label>
+
+            <input
+                type="number"
+                id="maintenance-cost"
+                placeholder="Наприклад: 2500"
+                min="0"
+                step="0.01"
+            >
+
+
+            <label for="maintenance-place">
+                Місце обслуговування
+            </label>
+
+            <input
+                type="text"
+                id="maintenance-place"
+                placeholder="Наприклад: СТО або самостійно"
+            >
+
+
+            <label for="maintenance-description">
+                Опис
+            </label>
+
+            <textarea
+                id="maintenance-description"
+                rows="4"
+                placeholder="Що саме було зроблено..."
+            ></textarea>
+            <!-- НАГАДУВАННЯ ПРО НАСТУПНЕ ОБСЛУГОВУВАННЯ -->
+
+<div class="maintenance-reminder">
+
+    <h4>
+        🔔 Наступне обслуговування
+    </h4>
+
+    <label class="reminder-checkbox">
+
+        <input
+            type="checkbox"
+            id="reminder-enabled"
+        >
+
+        Нагадати про наступне обслуговування
+
+    </label>
+
+
+    <div
+        class="reminder-settings"
+        id="reminder-settings"
+        hidden
+    >
+
+        <label for="reminder-mileage">
+            Через пробіг
+        </label>
+
+        <div class="reminder-input-row">
+
+            <input
+                type="number"
+                id="reminder-mileage"
+                placeholder="Наприклад: 10000"
+                min="1"
+            >
+
+            <span>км</span>
+
+        </div>
+
+
+        <label for="reminder-months">
+            Через час
+        </label>
+
+        <div class="reminder-input-row">
+
+            <input
+                type="number"
+                id="reminder-months"
+                placeholder="Наприклад: 12"
+                min="1"
+            >
+
+            <span>місяців</span>
+
+        </div>
+
+
+        <div
+            class="reminder-preview"
+            id="reminder-preview"
+        >
+        </div>
+
+    </div>
+
+</div>
+
+            <div class="car-form-buttons">
+
+                <button
+                    type="button"
+                    id="cancel-maintenance-button"
+                >
+                    Скасувати
+                </button>
+
+                <button
+                    type="submit"
+                    class="save-car-button"
+                    id="save-maintenance-button"
+                >
+                    Зберегти
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+             <!-- РЕМОНТИ АВТОМОБІЛЯ -->
+
+<section class="repairs-section" id="repairs-section">
+
+    <div class="maintenance-heading">
+
+        <div>
+
+            <p class="garage-label">
+                ІСТОРІЯ РЕМОНТІВ
+            </p>
+
+            <h2>
+                🛠️ Ремонти
+            </h2>
+
+        </div>
+
+        <button
+            type="button"
+            class="add-maintenance-button"
+            id="add-repair-button"
+        >
+            + Додати ремонт
+        </button>
+
+    </div>
+
+
+    <!-- Тут будуть ремонти з Supabase -->
+
+    <div
+        class="maintenance-list"
+        id="repairs-list"
+    >
+        <div class="maintenance-empty">
+
+            <p>
+                Історія ремонтів поки порожня.
+            </p>
+
+        </div>
+    </div>
+
+</section>
+            
+<!-- КОРОТКИЙ ОГЛЯД АВТОМОБІЛЯ -->
+
+<section
+    class="car-overview-summary"
+    id="car-overview-summary"
+>
+
+    <p class="garage-label">
+        КОРОТКИЙ ОГЛЯД
+    </p>
+
+    <h2>
+        Стан автомобіля
+    </h2>
+
+
+    <div class="car-overview-summary-grid">
+
+        <div class="car-overview-summary-card">
+
+            <span class="car-overview-summary-icon">
+                🔔
+            </span>
+
+            <div>
+
+                <p>
+                    Найближче обслуговування
+                </p>
+
+                <strong id="overview-next-service">
+                    Завантаження...
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="car-overview-summary-card">
+
+            <span class="car-overview-summary-icon">
+                📋
+            </span>
+
+            <div>
+
+                <p>
+                    Остання подія
+                </p>
+
+                <strong id="overview-last-event">
+                    Завантаження...
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="car-overview-summary-card">
+
+            <span class="car-overview-summary-icon">
+                💰
+            </span>
+
+            <div>
+
+                <p>
+                    Загальні витрати
+                </p>
+
+                <strong id="overview-total-cost">
+                    Завантаження...
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="car-overview-summary-card">
+
+            <span class="car-overview-summary-icon">
+                🧾
+            </span>
+
+            <div>
+
+                <p>
+                    Записів в історії
+                </p>
+
+                <strong id="overview-history-count">
+                    Завантаження...
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<section class="car-sections" id="car-sections" hidden>
+
+                <h2>Мій автомобіль</h2>
+
+                <div class="car-section-grid">
+
+                    <button
+    type="button"
+    class="car-section-card"
+    id="open-maintenance-page"
+>
+    🔧
+    <span>Обслуговування</span>
+</button>
+
+                    <button
+    type="button"
+    class="car-section-card"
+    id="open-repairs-page"
+>
+    🛠️
+    <span>Ремонти</span>
+</button>
+
+                    <button
+    type="button"
+    class="car-section-card"
+    id="open-fuel-page"
+>
+    ⛽
+    <span>Заправки</span>
+</button>
+
+                    <button type="button" class="car-section-card" id="open-expenses-page">
+                         💰
+                         <span>Інші витрати</span>
+                    </button>
+
+                    <button
+    type="button"
+    class="car-section-card"
+    id="open-history-page"
+>
+    📋
+    <span>Історія</span>
+</button>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+
+<script src="menu.js"></script>
+</body>
+
+</html>

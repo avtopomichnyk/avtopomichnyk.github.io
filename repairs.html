@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ремонти — АвтоПомічник</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="car-page repairs-page">
+
+    <header class="garage-header">
+
+        <div class="container garage-header-container">
+
+            <a href="garage.html" class="logo">
+                🚗 АвтоПомічник
+            </a>
+
+            <div class="garage-user-menu">
+
+                <span id="user-name">
+                    Користувач
+                </span>
+
+                <button
+                    type="button"
+                    class="logout-button"
+                    id="logout-button"
+                >
+                    Вийти
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="car-main">
+
+        <div class="container">
+
+            <a href="garage.html" class="back-to-garage">
+                ← Назад до гаража
+            </a>
+
+
+            <!-- ДАНІ АВТОМОБІЛЯ -->
+
+            <section class="car-details" id="car-details">
+
+                <p>
+                    Завантаження автомобіля...
+                </p>
+
+            </section>
+
+
+            <!-- РОЗДІЛИ АВТОМОБІЛЯ -->
+           <!-- ОБСЛУГОВУВАННЯ АВТОМОБІЛЯ -->
+
+           <!-- НАГАДУВАННЯ АВТОМОБІЛЯ -->
+
+<section
+    class="car-reminders"
+    id="car-reminders"
+    hidden
+>
+
+    <div class="car-reminders-heading">
+        <p class="garage-label">
+            КОНТРОЛЬ ОБСЛУГОВУВАННЯ
+        </p>
+
+        <h2>
+            🔔 Найближчі обслуговування
+        </h2>
+    </div>
+
+    <div id="car-reminders-list">
+    </div>
+
+</section>
+
+           <section class="maintenance-section" id="maintenance-section">
+
+    <div class="maintenance-heading">
+
+        <div>
+            <p class="garage-label">
+                ІСТОРІЯ ОБСЛУГОВУВАННЯ
+            </p>
+
+            <h2>Обслуговування</h2>
+        </div>
+
+        <button
+            type="button"
+            class="add-maintenance-button"
+            id="add-maintenance-button"
+        >
+            + Додати обслуговування
+        </button>
+
+    </div>
+
+
+    <!-- Тут пізніше з'являться записи з Supabase -->
+
+    <div
+        class="maintenance-list"
+        id="maintenance-list"
+    >
+    </div>
+
+
+    <!-- ФОРМА ДОДАВАННЯ ОБСЛУГОВУВАННЯ -->
+
+    <div
+        class="maintenance-form-container"
+        id="maintenance-form-container"
+        hidden
+    >
+
+        <h3 id="maintenance-form-title">
+    Нове обслуговування
+</h3>
+
+        <p class="required-note">
+            <span>*</span> — обов'язкові поля
+        </p>
+
+        <form id="maintenance-form">
+
+            <label for="maintenance-title">
+                Назва роботи
+                <span class="required-star">*</span>
+            </label>
+
+            <input
+                type="text"
+                id="maintenance-title"
+                placeholder="Наприклад: Заміна моторної оливи"
+                required
+            >
+
+
+            <label for="maintenance-date">
+                Дата
+                <span class="required-star">*</span>
+            </label>
+
+            <input
+                type="date"
+                id="maintenance-date"
+                required
+            >
+
+
+            <label for="maintenance-mileage">
+                Пробіг, км
+            </label>
+
+            <input
+                type="number"
+                id="maintenance-mileage"
+                placeholder="Наприклад: 247000"
+                min="0"
+            >
+
+
+            <label for="maintenance-cost">
+                Вартість, грн
+            </label>
+
+            <input
+                type="number"
+                id="maintenance-cost"
+                placeholder="Наприклад: 2500"
+                min="0"
+                step="0.01"
+            >
+
+
+            <label for="maintenance-place">
+                Місце обслуговування
+            </label>
+
+            <input
+                type="text"
+                id="maintenance-place"
+                placeholder="Наприклад: СТО або самостійно"
+            >
+
+
+            <label for="maintenance-description">
+                Опис
+            </label>
+
+            <textarea
+                id="maintenance-description"
+                rows="4"
+                placeholder="Що саме було зроблено..."
+            ></textarea>
+            <!-- НАГАДУВАННЯ ПРО НАСТУПНЕ ОБСЛУГОВУВАННЯ -->
+
+<div class="maintenance-reminder">
+
+    <h4>
+        🔔 Наступне обслуговування
+    </h4>
+
+    <label class="reminder-checkbox">
+
+        <input
+            type="checkbox"
+            id="reminder-enabled"
+        >
+
+        Нагадати про наступне обслуговування
+
+    </label>
+
+
+    <div
+        class="reminder-settings"
+        id="reminder-settings"
+        hidden
+    >
+
+        <label for="reminder-mileage">
+            Через пробіг
+        </label>
+
+        <div class="reminder-input-row">
+
+            <input
+                type="number"
+                id="reminder-mileage"
+                placeholder="Наприклад: 10000"
+                min="1"
+            >
+
+            <span>км</span>
+
+        </div>
+
+
+        <label for="reminder-months">
+            Через час
+        </label>
+
+        <div class="reminder-input-row">
+
+            <input
+                type="number"
+                id="reminder-months"
+                placeholder="Наприклад: 12"
+                min="1"
+            >
+
+            <span>місяців</span>
+
+        </div>
+
+
+        <div
+            class="reminder-preview"
+            id="reminder-preview"
+        >
+        </div>
+
+    </div>
+
+</div>
+
+            <div class="car-form-buttons">
+
+                <button
+                    type="button"
+                    id="cancel-maintenance-button"
+                >
+                    Скасувати
+                </button>
+
+                <button
+                    type="submit"
+                    class="save-car-button"
+                    id="save-maintenance-button"
+                >
+                    Зберегти
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</section>
+             <!-- РЕМОНТИ АВТОМОБІЛЯ -->
+
+<section class="repairs-section" id="repairs-section">
+
+    <div class="maintenance-heading">
+
+        <div>
+
+            <p class="garage-label">
+                ІСТОРІЯ РЕМОНТІВ
+            </p>
+
+            <h2>
+                🛠️ Ремонти
+            </h2>
+
+        </div>
+
+        <button
+            type="button"
+            class="add-maintenance-button"
+            id="add-repair-button"
+        >
+            + Додати ремонт
+        </button>
+
+    </div>
+
+
+    <!-- Тут будуть ремонти з Supabase -->
+
+    <div
+        class="maintenance-list"
+        id="repairs-list"
+    >
+        <div class="maintenance-empty">
+
+            <p>
+                Історія ремонтів поки порожня.
+            </p>
+
+        </div>
+    </div>
+    <!-- ФОРМА ДОДАВАННЯ РЕМОНТУ -->
+
+<div
+    class="repair-form-container"
+    id="repair-form-container"
+    hidden
+>
+
+    <form
+        class="repair-form"
+        id="repair-form"
+    >
+
+        <h2 id="repair-form-title">
+            Новий ремонт
+        </h2>
+
+
+        <div class="repair-form-grid">
+
+            <div class="repair-field">
+
+                <label for="repair-title">
+                    Назва ремонту *
+                </label>
+
+                <input
+                    type="text"
+                    id="repair-title"
+                    placeholder="Наприклад: Заміна ступичного підшипника"
+                    required
+                >
+
+            </div>
+
+
+            <div class="repair-field">
+
+                <label for="repair-date">
+                    Дата *
+                </label>
+
+                <input
+                    type="date"
+                    id="repair-date"
+                    required
+                >
+
+            </div>
+
+
+            <div class="repair-field">
+
+                <label for="repair-mileage">
+                    Пробіг
+                </label>
+
+                <input
+                    type="number"
+                    id="repair-mileage"
+                    min="0"
+                    placeholder="Наприклад: 257300"
+                >
+
+            </div>
+
+
+            <div class="repair-field">
+
+                <label for="repair-cost">
+                    Вартість
+                </label>
+
+                <input
+                    type="number"
+                    id="repair-cost"
+                    min="0"
+                    step="0.01"
+                    placeholder="Наприклад: 3500"
+                >
+
+            </div>
+
+
+            <div class="repair-field repair-field-full">
+
+                <label for="repair-place">
+                    Місце ремонту
+                </label>
+
+                <input
+                    type="text"
+                    id="repair-place"
+                    placeholder="СТО, гараж або майстер"
+                >
+
+            </div>
+
+
+            <div class="repair-field repair-field-full">
+
+                <label for="repair-description">
+                    Опис ремонту
+                </label>
+
+                <textarea
+                    id="repair-description"
+                    rows="5"
+                    placeholder="Що саме ремонтували або замінювали..."
+                ></textarea>
+
+            </div>
+
+        </div>
+
+
+        <div class="repair-form-actions">
+
+            <button
+                type="button"
+                id="cancel-repair-button"
+                class="repair-cancel-button"
+            >
+                Скасувати
+            </button>
+
+            <button
+                type="submit"
+                id="save-repair-button"
+                class="repair-save-button"
+            >
+                Зберегти ремонт
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+</section>
+            <section class="car-sections" id="car-sections" hidden>
+
+                <h2>Мій автомобіль</h2>
+
+                <div class="car-section-grid">
+
+                    <button type="button" class="car-section-card">
+                        🔧
+                        <span>Обслуговування</span>
+                    </button>
+
+                    <button type="button" class="car-section-card">
+                        🛠️
+                        <span>Ремонти</span>
+                    </button>
+
+                    <button type="button" class="car-section-card">
+                        ⛽
+                        <span>Заправки</span>
+                    </button>
+
+                    <button type="button" class="car-section-card">
+                        💰
+                        <span>Витрати</span>
+                    </button>
+
+                    <button type="button" class="car-section-card">
+                        📋
+                        <span>Історія</span>
+                    </button>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+
+<script src="menu.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Вхід — АвтоПомічник</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-page">
+
+    <header class="auth-header">
+        <div class="container">
+
+            <a href="index.html" class="logo">
+                🚗 АвтоПомічник
+            </a>
+
+        </div>
+    </header>
+
+
+    <main class="auth-main">
+
+        <div class="auth-container">
+
+            <div class="auth-card">
+
+                <div class="auth-title">
+
+                    <div class="auth-icon">
+                        🚗
+                    </div>
+
+                    <h1>З поверненням!</h1>
+
+                    <p>
+                        Увійдіть у свій акаунт,
+                        щоб відкрити ваш гараж.
+                    </p>
+
+                </div>
+
+
+                <!-- ВХІД ЧЕРЕЗ GOOGLE -->
+                <button class="google-button" type="button">
+
+                    <span class="google-letter">G</span>
+
+                    Продовжити через Google
+
+                </button>
+
+
+                <div class="auth-divider">
+                    <span>або</span>
+                </div>
+
+
+                <!-- ФОРМА ВХОДУ -->
+                <form class="auth-form" id="login-form">
+
+                    <div class="form-group">
+
+                        <label for="login-email">
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="login-email"
+                            name="email"
+                            placeholder="example@gmail.com"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <div class="password-label">
+
+                            <label for="login-password">
+                                Пароль
+                            </label>
+
+                            <a href="#" class="forgot-password">
+                                Забули пароль?
+                            </a>
+
+                        </div>
+
+                       <div class="password-input-wrapper">
+
+    <input
+        type="password"
+        id="login-password"
+        name="password"
+        placeholder="Введіть пароль"
+        required
+    >
+
+    <button
+        type="button"
+        id="toggle-login-password"
+        class="toggle-password-button"
+        aria-label="Показати пароль"
+    >
+        Показати
+    </button>
+
+</div>
+
+                    </div>
+
+
+                    <label class="checkbox-row">
+
+                        <input type="checkbox">
+
+                        <span>
+                            Запам'ятати мене
+                        </span>
+
+                    </label>
+
+
+                    <button
+                        type="submit"
+                        class="auth-submit"
+                    >
+                        Увійти
+                    </button>
+
+                </form>
+
+
+                <p class="auth-switch">
+
+                    Ще немає акаунта?
+
+                    <a href="register.html">
+                        Зареєструватися
+                    </a>
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="script.js"></script>
+
+<script src="menu.js"></script>
+</body>
+</html>

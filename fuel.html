@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Заправки — АвтоПомічник
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body class="car-page fuel-page">
+
+    <header class="garage-header">
+
+        <div class="container garage-header-container">
+
+            <a
+                href="garage.html"
+                class="logo"
+            >
+                🚗 АвтоПомічник
+            </a>
+
+
+            <div class="garage-user-menu">
+
+                <span id="user-name">
+                    Користувач
+                </span>
+
+                <button
+                    type="button"
+                    class="logout-button"
+                    id="logout-button"
+                >
+                    Вийти
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="car-main">
+
+        <div class="container">
+
+            <a
+                href="garage.html"
+                class="back-to-garage"
+            >
+                ← Назад до гаража
+            </a>
+
+
+            <!-- ДАНІ АВТОМОБІЛЯ -->
+
+            <section
+                class="car-details"
+                id="car-details"
+            >
+
+                <p>
+                    Завантаження автомобіля...
+                </p>
+
+            </section>
+
+
+            <!-- ЗАПРАВКИ -->
+
+            <section
+                class="refuels-section"
+                id="refuels-section"
+            >
+
+                <div class="maintenance-heading">
+
+                    <div>
+
+                        <p class="garage-label">
+                            ІСТОРІЯ ЗАПРАВОК
+                        </p>
+
+                        <h2>
+                            ⛽ Заправки
+                        </h2>
+
+                    </div>
+
+
+                    <button
+                        type="button"
+                        class="add-maintenance-button"
+                        id="add-refuel-button"
+                    >
+                        + Додати заправку
+                    </button>
+
+                    <button
+    type="button"
+    id="add-charge-button"
+    class="add-charge-button"
+>
+    ⚡ Додати заряджання
+</button>
+
+                </div>
+
+
+                <!-- СТАТИСТИКА ЗАПРАВОК -->
+
+
+<!-- ========================================
+     ФОРМА ЗАРЯДЖАННЯ ЕЛЕКТРОМОБІЛЯ
+======================================== -->
+
+<div
+    class="charge-form-container"
+    id="charge-form-container"
+    hidden
+>
+
+    <form
+        class="charge-form"
+        id="charge-form"
+    >
+
+        <h2 id="charge-form-title">
+            Нове заряджання
+        </h2>
+
+
+        <div class="charge-form-grid">
+
+            <div class="charge-field">
+
+                <label for="charge-date">
+                    Дата заряджання *
+                </label>
+
+                <input
+                    type="date"
+                    id="charge-date"
+                    required
+                >
+
+            </div>
+
+
+            <div class="charge-field">
+
+                <label for="charge-mileage">
+                    Пробіг, км
+                </label>
+
+                <input
+                    type="number"
+                    id="charge-mileage"
+                    min="0"
+                    step="1"
+                    placeholder="Наприклад: 125000"
+                >
+
+            </div>
+
+
+            <div class="charge-field">
+
+                <label for="charge-energy">
+                    Заряджено, кВт·год *
+                </label>
+
+                <input
+                    type="number"
+                    id="charge-energy"
+                    min="0.01"
+                    step="0.01"
+                    placeholder="Наприклад: 38.5"
+                    required
+                >
+
+            </div>
+
+
+            <div class="charge-field">
+
+                <label for="charge-price">
+                    Ціна за 1 кВт·год, грн
+                </label>
+
+                <input
+                    type="number"
+                    id="charge-price"
+                    min="0"
+                    step="0.01"
+                    placeholder="Наприклад: 4.32"
+                >
+
+            </div>
+
+
+            <div class="charge-field">
+
+                <label for="charge-cost">
+                    Загальна вартість, грн
+                </label>
+
+                <input
+                    type="number"
+                    id="charge-cost"
+                    min="0"
+                    step="0.01"
+                    placeholder="Розрахується автоматично"
+                    readonly
+                >
+
+            </div>
+
+
+            <div class="charge-field">
+
+                <label for="charge-source">
+                    Джерело заряджання
+                </label>
+
+                <select id="charge-source">
+
+                    <option value="">
+                        Не вказано
+                    </option>
+
+                    <option value="home">
+                        🏠 Домашня зарядка / розетка
+                    </option>
+
+                    <option value="public">
+                        ⚡ Публічна зарядна станція
+                    </option>
+
+                    <option value="work">
+                        🏢 Заряджання на роботі
+                    </option>
+
+                    <option value="other">
+                        📍 Інше
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="charge-field">
+
+                <label for="charge-start-percent">
+                    Заряд до початку, %
+                </label>
+
+                <input
+                    type="number"
+                    id="charge-start-percent"
+                    min="0"
+                    max="100"
+                    step="1"
+                    placeholder="Наприклад: 20"
+                >
+
+            </div>
+
+
+            <div class="charge-field">
+
+                <label for="charge-end-percent">
+                    Заряд після, %
+                </label>
+
+                <input
+                    type="number"
+                    id="charge-end-percent"
+                    min="0"
+                    max="100"
+                    step="1"
+                    placeholder="Наприклад: 80"
+                >
+
+            </div>
+
+
+            <div class="charge-field charge-field-full">
+
+                <label for="charge-place">
+                    Місце / назва станції
+                </label>
+
+                <input
+                    type="text"
+                    id="charge-place"
+                    placeholder="Наприклад: Дім або AutoEnterprise"
+                >
+
+            </div>
+
+
+            <div class="charge-field charge-field-full">
+
+                <label for="charge-description">
+                    Примітка
+                </label>
+
+                <textarea
+                    id="charge-description"
+                    rows="4"
+                    placeholder="Додаткова інформація про заряджання"
+                ></textarea>
+
+            </div>
+
+        </div>
+
+
+        <div class="charge-form-actions">
+
+            <button
+                type="button"
+                id="cancel-charge-button"
+                class="charge-cancel-button"
+            >
+                Скасувати
+            </button>
+
+            <button
+                type="submit"
+                id="save-charge-button"
+                class="charge-save-button"
+            >
+                Зберегти заряджання
+            </button>
+
+        </div>
+
+    </form>
+
+</div>   
+<div
+    class="fuel-stats"
+    id="fuel-stats"
+>
+
+    <div class="fuel-stat-card">
+
+        <span class="fuel-stat-icon">
+            ⛽
+        </span>
+
+        <div>
+            <p>
+                Середня витрата
+            </p>
+
+            <strong id="fuel-average-consumption">
+                —
+            </strong>
+        </div>
+
+    </div>
+
+
+    <div class="fuel-stat-card">
+
+        <span class="fuel-stat-icon">
+            💰
+        </span>
+
+        <div>
+            <p>
+                Витрачено на пальне
+            </p>
+
+            <strong id="fuel-total-cost">
+                0 грн
+            </strong>
+        </div>
+
+    </div>
+
+
+    <div class="fuel-stat-card">
+
+        <span class="fuel-stat-icon">
+            🛢
+        </span>
+
+        <div>
+            <p>
+                Заправлено пального
+            </p>
+
+            <strong id="fuel-total-liters">
+                0 л
+            </strong>
+        </div>
+
+    </div>
+
+
+    <div class="fuel-stat-card">
+
+        <span class="fuel-stat-icon">
+            🧾
+        </span>
+
+        <div>
+            <p>
+                Кількість заправок
+            </p>
+
+            <strong id="fuel-refuels-count">
+                0
+            </strong>
+        </div>
+
+    </div>
+
+</div>
+
+                <div
+                    class="maintenance-list"
+                    id="refuels-list"
+                >
+
+                    <div class="maintenance-empty">
+
+                        <p>
+                            Історія заправок поки порожня.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <!-- ФОРМА ДОДАВАННЯ ЗАПРАВКИ -->
+
+<div
+    class="refuel-form-container"
+    id="refuel-form-container"
+    hidden
+>
+
+    <form
+        class="refuel-form"
+        id="refuel-form"
+    >
+
+        <h2 id="refuel-form-title">
+            Нова заправка
+        </h2>
+
+
+        <div class="refuel-form-grid">
+
+
+            <div class="refuel-field">
+
+                <label for="refuel-date">
+                    Дата *
+                </label>
+
+                <input
+                    type="date"
+                    id="refuel-date"
+                    required
+                >
+
+            </div>
+
+
+            <div class="refuel-field">
+
+                <label for="refuel-mileage">
+                    Пробіг
+                </label>
+
+                <input
+                    type="number"
+                    id="refuel-mileage"
+                    min="0"
+                    placeholder="Наприклад: 257500"
+                >
+
+            </div>
+
+
+            <div class="refuel-field">
+
+                <label for="refuel-liters">
+                    Кількість пального, л *
+                </label>
+
+                <input
+                    type="number"
+                    id="refuel-liters"
+                    min="0"
+                    step="0.01"
+                    placeholder="Наприклад: 42.5"
+                    required
+                >
+
+            </div>
+
+
+            <div class="refuel-field">
+
+                <label for="refuel-price">
+                    Ціна за літр, грн
+                </label>
+
+                <input
+                    type="number"
+                    id="refuel-price"
+                    min="0"
+                    step="0.01"
+                    placeholder="Наприклад: 58.50"
+                >
+
+            </div>
+
+
+            <div class="refuel-field">
+
+                <label for="refuel-cost">
+                    Загальна сума, грн
+                </label>
+
+                <input
+                    type="number"
+                    id="refuel-cost"
+                    min="0"
+                    step="0.01"
+                    placeholder="Наприклад: 2486.25"
+                >
+
+            </div>
+
+
+            <div class="refuel-field">
+
+                <label for="refuel-station">
+                    АЗС
+                </label>
+
+                <input
+                    type="text"
+                    id="refuel-station"
+                    placeholder="Наприклад: OKKO"
+                >
+
+            </div>
+
+
+            <div class="refuel-field refuel-field-full">
+
+                <label for="refuel-fuel-type">
+                    Вид пального
+                </label>
+
+                <select id="refuel-fuel-type">
+
+                    <option value="">
+                        Не вказано
+                    </option>
+
+                    <option value="petrol">
+                        Бензин
+                    </option>
+
+                    <option value="diesel">
+                        Дизель
+                    </option>
+
+                    <option value="lpg">
+                        Газ
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div
+    class="refuel-field
+           refuel-field-full
+           refuel-full-tank-field"
+>
+
+    <label
+        class="refuel-checkbox-label"
+        for="refuel-full-tank"
+    >
+
+        <input
+            type="checkbox"
+            id="refuel-full-tank"
+        >
+
+        <span>
+            ⛽ Заправлено до повного бака
+        </span>
+
+    </label>
+
+    <small class="refuel-full-tank-help">
+        Позначте, якщо після заправки бак був повністю заповнений.
+    </small>
+
+</div>
+
+
+        </div>
+
+
+        <div class="refuel-form-actions">
+
+            <button
+                type="button"
+                class="refuel-cancel-button"
+                id="cancel-refuel-button"
+            >
+                Скасувати
+            </button>
+
+
+            <button
+                type="submit"
+                class="refuel-save-button"
+                id="save-refuel-button"
+            >
+                Зберегти заправку
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+<!-- ========================================
+     ІСТОРІЯ ЗАРЯДЖАНЬ
+======================================== -->
+
+<!-- ========================================
+     СТАТИСТИКА ЗАРЯДЖАНЬ
+======================================== -->
+
+<section
+    class="charge-stats"
+    id="charge-stats"
+>
+
+    <h2>
+        ⚡ Статистика заряджань
+    </h2>
+
+
+    <div class="charge-stats-grid">
+
+        <div class="charge-stat-card">
+            <span>
+                Всього енергії
+            </span>
+
+            <strong id="charge-total-energy">
+                0 кВт·год
+            </strong>
+        </div>
+
+
+        <div class="charge-stat-card">
+            <span>
+                Витрати на заряджання
+            </span>
+
+            <strong id="charge-total-cost">
+                0 грн
+            </strong>
+        </div>
+
+
+        <div class="charge-stat-card">
+            <span>
+                Кількість заряджань
+            </span>
+
+            <strong id="charge-count">
+                0
+            </strong>
+        </div>
+
+
+        <div class="charge-stat-card">
+            <span>
+                Середня ціна
+            </span>
+
+            <strong id="charge-average-price">
+                — грн/кВт·год
+            </strong>
+        </div>
+
+    </div>
+
+</section>
+<section
+    class="charge-history-section"
+    id="charge-history-section"
+>
+
+    <div class="charge-history-heading">
+
+        <div>
+            <p class="section-label">
+                ІСТОРІЯ ЗАРЯДЖАНЬ
+            </p>
+
+            <h2>
+                ⚡ Заряджання
+            </h2>
+        </div>
+
+    </div>
+
+
+    <div
+        class="charge-history-list"
+        id="charges-list"
+    >
+
+        <div class="maintenance-empty">
+            <p>
+                Історія заряджань поки порожня.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+    
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+    <script src="script.js"></script>
+
+    <script src="menu.js"></script>
+
+</body>
+
+</html>

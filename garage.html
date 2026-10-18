@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Мій гараж — АвтоПомічник</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="garage-page">
+
+    <header class="garage-header">
+
+        <div class="container garage-header-container">
+
+            <a href="garage.html" class="logo">
+                🚗 АвтоПомічник
+            </a>
+
+            <div class="garage-user-menu">
+
+                <span id="user-name">
+                    Користувач
+                </span>
+
+                <button
+                    type="button"
+                    class="logout-button"
+                    id="logout-button"
+                >
+                    Вийти
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="garage-main">
+
+        <div class="container">
+
+            <div class="garage-heading">
+
+                <div>
+                    <p class="garage-label">
+                        ОСОБИСТИЙ КАБІНЕТ
+                    </p>
+
+                    <h1>Мій гараж</h1>
+
+                    <p>
+                        Тут зберігатимуться ваші автомобілі
+                        та їхня історія.
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    class="add-car-button"
+                    id="add-car-button"
+                >
+                    + Додати автомобіль
+                </button>
+
+            </div>
+
+            <!-- АВТОМОБІЛІ КОРИСТУВАЧА -->
+
+<div class="cars-list" id="cars-list">
+</div>
+            <!-- ПОРОЖНІЙ ГАРАЖ -->
+
+            <div class="empty-garage" id="empty-garage">
+
+                <div class="empty-garage-icon">
+                    🚘
+                </div>
+
+                <h2>
+                    У вас ще немає автомобілів
+                </h2>
+
+                <p>
+                    Додайте свій перший автомобіль,
+                    щоб почати вести історію
+                    обслуговування, ремонтів,
+                    заправок та витрат.
+                </p>
+
+                <button
+                    type="button"
+                    class="empty-add-button"
+                >
+                    + Додати перший автомобіль
+                </button>
+
+            </div>
+                        <!-- ФОРМА ДОДАВАННЯ АВТОМОБІЛЯ -->
+
+            <div class="car-form-container" id="car-form-container" hidden>
+
+                <h2>Додати автомобіль</h2>
+                <p class="required-note">
+    <span>*</span> — обов'язкові поля
+</p>
+                <form id="car-form">
+
+                    <label for="car-name">
+    Назва автомобіля <span class="required-star">*</span>
+</label>
+                    <input
+                        type="text"
+                        id="car-name"
+                        placeholder="Наприклад: Мій Volkswagen"
+                        required
+                    >
+
+                    <label for="car-make">
+    Марка <span class="required-star">*</span>
+</label>
+                    <input
+                        type="text"
+                        id="car-make"
+                        placeholder="Наприклад: Volkswagen"
+                        required
+                    >
+
+                    <label for="car-model">
+    Модель <span class="required-star">*</span>
+</label>
+                    <input
+                        type="text"
+                        id="car-model"
+                        placeholder="Наприклад: Touran"
+                        required
+                    >
+
+                    <label for="car-year">Рік випуску</label>
+                    <input
+                        type="number"
+                        id="car-year"
+                        placeholder="Наприклад: 2005"
+                    >
+
+                    <label for="car-engine">Двигун</label>
+                    <input
+                        type="text"
+                        id="car-engine"
+                        placeholder="Наприклад: 1.6 FSI"
+                    >
+
+                    <label for="car-tank-capacity">
+    Об’єм паливного бака, л
+</label>
+
+<input
+    type="number"
+    id="car-tank-capacity"
+    min="1"
+    step="0.1"
+    placeholder="Наприклад: 60"
+>
+
+<label for="car-lpg-tank-capacity">
+    Об’єм газового балона, л
+</label>
+
+<input
+    type="number"
+    id="car-lpg-tank-capacity"
+    min="1"
+    step="0.1"
+    placeholder="Наприклад: 42"
+>
+
+<label for="car-battery-capacity">
+    Ємність батареї, кВт·год
+</label>
+
+<input
+    type="number"
+    id="car-battery-capacity"
+    min="0.1"
+    step="0.1"
+    placeholder="Наприклад: 64"
+>
+
+                    <label for="car-mileage">Пробіг, км</label>
+                    <input
+                        type="number"
+                        id="car-mileage"
+                        placeholder="Наприклад: 220000"
+                    >
+
+                    <label for="car-fuel">Тип пального</label>
+                    <select id="car-fuel">
+
+    <option value="">
+        Оберіть тип пального
+    </option>
+
+    <option value="petrol">
+        Бензин
+    </option>
+
+    <option value="diesel">
+        Дизель
+    </option>
+
+    <option value="lpg">
+        Газ
+    </option>
+
+    <option value="petrol_lpg">
+        Бензин + газ
+    </option>
+
+    <option value="hybrid">
+        Гібрид HEV
+    </option>
+
+    <option value="phev">
+        Plug-in Hybrid PHEV
+    </option>
+
+    <option value="electric">
+        Електро
+    </option>
+
+</select>
+
+                    <label for="car-transmission">Коробка передач</label>
+                    <select id="car-transmission">
+                        <option value="">Оберіть коробку передач</option>
+                        <option value="manual">Механічна</option>
+                        <option value="automatic">Автоматична</option>
+                        <option value="robot">Роботизована</option>
+                        <option value="cvt">Варіатор</option>
+                    </select>
+
+                    <label for="car-license-plate">Державний номер</label>
+                    <input
+                        type="text"
+                        id="car-license-plate"
+                        placeholder="Наприклад: AB1234CD"
+                    >
+
+                    <label for="car-vin">VIN-код</label>
+                    <input
+                        type="text"
+                        id="car-vin"
+                        placeholder="17 символів VIN"
+                        maxlength="17"
+                    >
+
+                    <div class="car-form-buttons">
+
+                        <button
+                            type="button"
+                            id="cancel-car-button"
+                        >
+                            Скасувати
+                        </button>
+
+                        <button
+                            type="submit"
+                            class="save-car-button"
+                        >
+                            Зберегти автомобіль
+                        </button>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+
+<script src="menu.js"></script>
+</body>
+
+</html>

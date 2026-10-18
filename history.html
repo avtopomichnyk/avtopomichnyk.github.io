@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Історія — АвтоПомічник
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+</head>
+
+
+<body class="car-page history-page">
+
+    <header class="garage-header">
+
+        <div class="container garage-header-container">
+
+            <a
+                href="garage.html"
+                class="logo"
+            >
+                🚗 АвтоПомічник
+            </a>
+
+
+            <div class="garage-user-menu">
+
+                <span id="user-name">
+                    Користувач
+                </span>
+
+                <button
+                    type="button"
+                    class="logout-button"
+                    id="logout-button"
+                >
+                    Вийти
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <main class="car-main">
+
+        <div class="container">
+
+            <a
+                href="garage.html"
+                class="back-to-garage"
+            >
+                ← Назад до гаража
+            </a>
+
+
+            <!-- ДАНІ АВТОМОБІЛЯ -->
+
+            <section
+                class="car-details"
+                id="car-details"
+            >
+
+                <p>
+                    Завантаження автомобіля...
+                </p>
+
+            </section>
+
+
+            <!-- ЗАГАЛЬНА ІСТОРІЯ -->
+
+            <section
+                class="history-section"
+                id="history-section"
+            >
+
+                <div class="maintenance-heading">
+
+                    <div>
+
+                        <p class="garage-label">
+                            ПОВНА ІСТОРІЯ АВТОМОБІЛЯ
+                        </p>
+
+                        <h2>
+                            📋 Історія
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <!-- СТАТИСТИКА ВИТРАТ -->
+
+<div
+    class="history-stats"
+    id="history-stats"
+>
+
+    <div class="history-stat-card history-stat-total">
+
+        <span>
+            Загальні витрати
+        </span>
+
+        <strong id="history-total-cost">
+            0 грн
+        </strong>
+
+    </div>
+
+
+    <div class="history-stat-card">
+
+        <span>
+            🔧 Обслуговування
+        </span>
+
+        <strong id="history-maintenance-cost">
+            0 грн
+        </strong>
+
+    </div>
+
+
+    <div class="history-stat-card">
+
+        <span>
+            🛠️ Ремонти
+        </span>
+
+        <strong id="history-repairs-cost">
+            0 грн
+        </strong>
+
+    </div>
+
+
+    <div class="history-stat-card">
+
+        <span>
+            ⛽ Пальне
+        </span>
+
+        <strong id="history-refuels-cost">
+            0 грн
+        </strong>
+
+    </div>
+
+
+    <div class="history-stat-card">
+
+        <span>
+            💰 Інші витрати
+        </span>
+
+        <strong id="history-expenses-cost">
+            0 грн
+        </strong>
+
+    </div>
+
+    <div class="history-stat-card">
+
+    <span>
+        ⚡ Заряджання
+    </span>
+
+    <strong id="history-charges-cost">
+        0 грн
+    </strong>
+
+</div>
+
+</div>
+                
+<div
+    class="history-export"
+    id="history-export"
+>
+
+    <div class="history-export-text">
+        <strong>
+            Експорт даних
+        </strong>
+
+        <span>
+            Збережіть історію автомобіля
+        </span>
+    </div>
+
+<div class="history-export-options">
+
+    <div class="history-export-period">
+
+        <label for="export-period-mode">
+            Період
+        </label>
+
+        <select id="export-period-mode">
+
+            <option value="all">
+                За весь час
+            </option>
+
+            <option value="custom">
+                Вибрати період
+            </option>
+
+        </select>
+
+    </div>
+
+
+    <div
+        class="history-export-date-range"
+        id="export-date-range"
+        hidden
+    >
+
+        <div>
+
+            <label for="export-date-from">
+                Від
+            </label>
+
+            <input
+                type="date"
+                id="export-date-from"
+            >
+
+        </div>
+
+
+        <div>
+
+            <label for="export-date-to">
+                До
+            </label>
+
+            <input
+                type="date"
+                id="export-date-to"
+            >
+
+        </div>
+
+    </div>
+
+
+    <fieldset class="history-export-data">
+
+        <legend>
+            Які дані експортувати
+        </legend>
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="export-car-data"
+                checked
+            >
+
+            Дані автомобіля
+
+        </label>
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="export-maintenance"
+                checked
+            >
+
+            🔧 Обслуговування
+
+        </label>
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="export-repairs"
+                checked
+            >
+
+            🛠 Ремонти
+
+        </label>
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="export-refuels"
+                checked
+            >
+
+            ⛽ Заправки
+
+        </label>
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="export-charges"
+                checked
+            >
+
+            ⚡ Заряджання
+
+        </label>
+
+
+        <label>
+
+            <input
+                type="checkbox"
+                id="export-expenses"
+                checked
+            >
+
+            💰 Інші витрати
+
+        </label>
+
+    </fieldset>
+
+</div>    
+
+    <div class="history-export-buttons">
+
+        <button
+            type="button"
+            id="export-history-csv"
+            class="export-history-button"
+        >
+            📊 Експорт CSV
+        </button>
+
+<button
+    type="button"
+    id="export-history-excel"
+    class="export-history-button export-history-excel-button"
+>
+    📗 Експорт Excel
+</button>        
+
+        <button
+            type="button"
+            id="export-history-pdf"
+            class="export-history-button export-history-pdf-button"
+        >
+            📄 Експорт PDF
+        </button>
+
+    </div>
+
+</div>
+
+<div class="history-filters">
+
+    <button
+        type="button"
+        class="history-filter-button active"
+        data-filter="all"
+    >
+        Усі
+    </button>
+
+    <button
+        type="button"
+        class="history-filter-button"
+        data-filter="maintenance"
+    >
+        🔧 Обслуговування
+    </button>
+
+    <button
+        type="button"
+        class="history-filter-button"
+        data-filter="repair"
+    >
+        🛠️ Ремонти
+    </button>
+
+    <button
+        type="button"
+        class="history-filter-button"
+        data-filter="refuel"
+    >
+        ⛽ Заправки
+    </button>
+
+    <button
+        type="button"
+        class="history-filter-button"
+        data-filter="expense"
+    >
+        💰 Інші витрати
+    </button>
+    <button
+    type="button"
+    class="history-filter-button"
+    data-filter="charge"
+>
+    ⚡ Заряджання
+</button>
+
+</div>
+                <div
+                    class="maintenance-list"
+                    id="history-list"
+                >
+
+                    <div class="maintenance-empty">
+
+                        <p>
+                            Завантаження історії...
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+    ></script>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"
+></script>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/pdfmake@0.2.12/build/pdfmake.min.js"
+></script>
+
+<script
+    src="https://cdn.jsdelivr.net/npm/pdfmake@0.2.12/build/vfs_fonts.js"
+></script>
+
+    <script src="script.js"></script>
+
+    <script src="menu.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>АвтоПомічник — історія вашого автомобіля</title>
+
+    <meta
+        name="description"
+        content="АвтоПомічник — зберігайте історію обслуговування, ремонти, витрати, заправки та нагадування вашого автомобіля."
+    >
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="manifest"
+        href="manifest.json"
+    >
+
+    <meta
+        name="theme-color"
+        content="#2563eb"
+    >
+    
+</head>
+
+<body>
+
+    <!-- ШАПКА САЙТУ -->
+    <header class="header">
+        <div class="container header-container">
+
+            <a href="index.html" class="logo">
+                🚗 АвтоПомічник
+            </a>
+
+            <nav class="nav">
+                <a href="#features">Можливості</a>
+                <a href="#how-it-works">Як це працює</a>
+                <a href="#about">Про сервіс</a>
+            </nav>
+
+            <div
+    class="header-buttons"
+    id="header-auth-buttons"
+>
+
+    <a
+        href="login.html"
+        class="login-button"
+    >
+        Увійти
+    </a>
+
+    <a
+        href="register.html"
+        class="register-button"
+    >
+        Реєстрація
+    </a>
+
+</div>
+
+        </div>
+    </header>
+
+
+    <main>
+
+        <!-- ГОЛОВНИЙ БЛОК -->
+        <section class="hero">
+
+            <div class="container hero-container">
+
+                <div class="hero-text">
+
+                    <p class="hero-label">
+                        🚘 Ваш автомобіль завжди під контролем
+                    </p>
+
+                    <h1>
+                        Уся історія вашого авто
+                        <span>в одному місці</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        Зберігайте інформацію про технічне обслуговування,
+                        ремонти, заправки та витрати. Створюйте нагадування
+                        і більше не забувайте про важливе.
+                    </p>
+
+                    <div class="hero-buttons">
+                        <a href="register.html" class="primary-button">
+                        Почати безкоштовно
+                        </a>
+
+                        <a href="#how-it-works" class="secondary-button">
+                            Як це працює
+                        </a>
+                    </div>
+
+                    <div class="hero-benefits">
+                        <span>✓ Безкоштовний старт</span>
+                        <span>✓ Працює на телефоні</span>
+                        <span>✓ Ваші дані завжди з вами</span>
+                    </div>
+
+                </div>
+
+
+                <!-- ПРИКЛАД КАРТКИ АВТО -->
+                <div class="hero-card">
+
+                    <div class="car-card">
+
+                        <div class="car-card-top">
+                            <span class="car-icon">🚙</span>
+
+                            <div>
+                                <h3>Мій автомобіль</h3>
+                                <p>Особистий гараж</p>
+                            </div>
+                        </div>
+
+                        <div class="car-example">
+
+                            <h3>Škoda Octavia</h3>
+
+                               <p>2018 • 1.6 TDI</p>
+
+                            <div class="mileage">
+                                <span>Поточний пробіг</span>
+                                <strong>128 450 км</strong>
+                            </div>
+
+                        </div>
+
+                        <div class="next-service">
+
+                            <div>
+                                <span>🛢️ Заміна масла</span>
+                                <strong>через 1 650 км</strong>
+                            </div>
+
+                            <div>
+                                <span>🛡️ Страхування</span>
+                                <strong>через 40 днів</strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- МОЖЛИВОСТІ -->
+        <section class="features" id="features">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <p>МОЖЛИВОСТІ</p>
+
+                    <h2>
+                        Все необхідне для вашого автомобіля
+                    </h2>
+
+                    <span>
+                        АвтоПомічник збере важливу інформацію
+                        про автомобіль в одному місці.
+                    </span>
+                </div>
+
+
+                <div class="features-grid">
+
+                    <div class="feature-card">
+                        <div class="feature-icon">🔧</div>
+
+                        <h3>Історія обслуговування</h3>
+
+                        <p>
+                            Записуйте заміну масла, фільтрів,
+                            запчастин та всі виконані ремонти.
+                        </p>
+                    </div>
+
+
+                    <div class="feature-card">
+                        <div class="feature-icon">⛽</div>
+
+                        <h3>Заправки</h3>
+
+                        <p>
+                            Зберігайте інформацію про заправки,
+                            витрати пального та його вартість.
+                        </p>
+                    </div>
+
+
+                    <div class="feature-card">
+                        <div class="feature-icon">💰</div>
+
+                        <h3>Витрати</h3>
+
+                        <p>
+                            Дізнавайтеся, скільки насправді
+                            коштує утримання вашого автомобіля.
+                        </p>
+                    </div>
+
+
+                    <div class="feature-card">
+                        <div class="feature-icon">🔔</div>
+
+                        <h3>Нагадування</h3>
+
+                        <p>
+                            Створюйте нагадування за датою
+                            або пробігом автомобіля.
+                        </p>
+                    </div>
+
+
+                    <div class="feature-card">
+                        <div class="feature-icon">📄</div>
+
+                        <h3>Документи</h3>
+
+                        <p>
+                            Зберігайте чеки, фотографії
+                            та важливі документи автомобіля.
+                        </p>
+                    </div>
+
+
+                    <div class="feature-card">
+                        <div class="feature-icon">📊</div>
+
+                        <h3>Статистика</h3>
+
+                        <p>
+                            Переглядайте статистику витрат,
+                            пробігу та обслуговування.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ЯК ЦЕ ПРАЦЮЄ -->
+        <section class="how-it-works" id="how-it-works">
+
+            <div class="container">
+
+                <div class="section-heading">
+                    <p>ЯК ЦЕ ПРАЦЮЄ</p>
+
+                    <h2>
+                        Почати дуже просто
+                    </h2>
+                </div>
+
+
+                <div class="steps">
+
+                    <div class="step">
+                        <span>1</span>
+
+                        <h3>Створіть акаунт</h3>
+
+                        <p>
+                            Зареєструйтеся за допомогою
+                            електронної пошти або Google.
+                        </p>
+                    </div>
+
+
+                    <div class="step">
+                        <span>2</span>
+
+                        <h3>Додайте автомобіль</h3>
+
+                        <p>
+                            Вкажіть назву, модель, рік
+                            та поточний пробіг.
+                        </p>
+                    </div>
+
+
+                    <div class="step">
+                        <span>3</span>
+
+                        <h3>Ведіть історію</h3>
+
+                        <p>
+                            Додавайте ремонти, ТО,
+                            заправки та інші витрати.
+                        </p>
+                    </div>
+
+
+                    <div class="step">
+                        <span>4</span>
+
+                        <h3>Отримуйте нагадування</h3>
+
+                        <p>
+                            АвтоПомічник допоможе не забути
+                            про наступне обслуговування.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ПРО СЕРВІС -->
+        <section class="about" id="about">
+
+            <div class="container about-container">
+
+                <div>
+                    <p class="section-label">
+                        АВТОПОМІЧНИК
+                    </p>
+
+                    <h2>
+                        Цифрова сервісна книжка,
+                        яка завжди поруч
+                    </h2>
+
+                    <p>
+                        Користуйтеся АвтоПомічником на комп'ютері,
+                        планшеті або смартфоні. Ваші записи
+                        синхронізуються між пристроями.
+                    </p>
+
+                    <p>
+                        У майбутньому АвтоПомічник можна буде
+                        встановити на телефон як PWA-застосунок.
+                    </p>
+
+                </div>
+
+                <div class="device-box">
+                    <span>🖥️</span>
+                    <span>📱</span>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ПІДВАЛ САЙТУ -->
+    <footer class="footer">
+
+        <div class="container footer-container">
+
+            <div>
+                <strong>🚗 АвтоПомічник</strong>
+
+                <p>
+                    Ваш автомобіль. Ваша історія.
+                </p>
+            </div>
+
+            <div class="footer-links">
+                <a href="#">Допомога</a>
+                <a href="#">Зворотний зв'язок</a>
+                <a href="#">Конфіденційність</a>
+                <a href="#">Умови використання</a>
+            </div>
+
+        </div>
+
+        <p class="copyright">
+            © 2026 АвтоПомічник
+        </p>
+
+    </footer>
+
+
+    <script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"
+></script>
+    <script src="script.js"></script>
+
+<script src="menu.js"></script>
+</body>
+
+</html>
