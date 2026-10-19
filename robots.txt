@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+Disallow: /garage.html
+Disallow: /car.html
+Disallow: /maintenance.html
+Disallow: /repairs.html
+Disallow: /fuel.html
+Disallow: /expenses.html
+Disallow: /history.html
+Disallow: /import.html
+Disallow: /reset-password.html
+Disallow: /login.html
+Disallow: /register.html
+
+Sitemap: https://avtopomichnyk.github.io/sitemap.xml

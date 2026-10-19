@@ -131,6 +131,14 @@ setupRegisterPasswordToggle(
     "password-confirm"
 );
 
+setupRegisterPasswordToggle(
+    "reset-password"
+);
+
+setupRegisterPasswordToggle(
+    "reset-password-confirm"
+);
+
 const registerForm = document.getElementById("register-form");
 
 if (registerForm) {
@@ -258,6 +266,96 @@ if (
     );
 
 }
+
+// ========================================
+// ВІДНОВЛЕННЯ ПАРОЛЯ
+// ========================================
+
+const forgotPasswordLink =
+    document.getElementById(
+        "forgot-password-link"
+    );
+
+
+if (forgotPasswordLink) {
+
+    forgotPasswordLink.addEventListener(
+        "click",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            const emailInput =
+                document.getElementById(
+                    "login-email"
+                );
+
+
+            const email =
+                emailInput
+                    ? emailInput.value.trim()
+                    : "";
+
+
+            if (!email) {
+
+                alert(
+                    "Спочатку введіть вашу електронну пошту у поле Email."
+                );
+
+                if (emailInput) {
+                    emailInput.focus();
+                }
+
+                return;
+            }
+
+
+            const redirectUrl =
+                window.location.origin +
+                "/reset-password.html";
+
+
+            const {
+                error
+            } =
+                await supabaseClient
+                    .auth
+                    .resetPasswordForEmail(
+                        email,
+                        {
+                            redirectTo:
+                                redirectUrl
+                        }
+                    );
+
+
+            if (error) {
+
+                console.error(
+                    "Помилка відновлення пароля:",
+                    error
+                );
+
+                alert(
+                    "Не вдалося надіслати лист для відновлення пароля."
+                );
+
+                return;
+            }
+
+
+            alert(
+                "Лист для відновлення пароля надіслано.\n\n" +
+                "Перевірте вашу електронну пошту та перейдіть за посиланням у листі."
+            );
+
+        }
+    );
+
+}
+
 const loginForm = document.getElementById("login-form");
 
 if (loginForm) {
@@ -309,6 +407,129 @@ if (loginForm) {
     });
 
 }
+
+// ========================================
+// ЗБЕРЕЖЕННЯ НОВОГО ПАРОЛЯ
+// ========================================
+
+const resetPasswordForm =
+    document.getElementById(
+        "reset-password-form"
+    );
+
+
+if (resetPasswordForm) {
+
+    resetPasswordForm.addEventListener(
+        "submit",
+        async function (event) {
+
+            event.preventDefault();
+
+
+            const password =
+                document.getElementById(
+                    "reset-password"
+                ).value;
+
+
+            const passwordConfirm =
+                document.getElementById(
+                    "reset-password-confirm"
+                ).value;
+
+
+            if (
+                password !==
+                passwordConfirm
+            ) {
+
+                alert(
+                    "Паролі не співпадають."
+                );
+
+                return;
+            }
+
+
+            if (password.length < 6) {
+
+                alert(
+                    "Пароль повинен містити щонайменше 6 символів."
+                );
+
+                return;
+            }
+
+
+            const {
+                data: {
+                    session
+                }
+            } =
+                await supabaseClient
+                    .auth
+                    .getSession();
+
+
+            if (!session) {
+
+                alert(
+                    "Посилання для відновлення пароля недійсне або його термін дії завершився.\n\n" +
+                    "Запросіть нове посилання на сторінці входу."
+                );
+
+                window.location.href =
+                    "login.html";
+
+                return;
+            }
+
+
+            const {
+                error
+            } =
+                await supabaseClient
+                    .auth
+                    .updateUser({
+                        password:
+                            password
+                    });
+
+
+            if (error) {
+
+                console.error(
+                    "Помилка зміни пароля:",
+                    error
+                );
+
+                alert(
+                    "Не вдалося змінити пароль."
+                );
+
+                return;
+            }
+
+
+            alert(
+                "Пароль успішно змінено!"
+            );
+
+
+            await supabaseClient
+                .auth
+                .signOut();
+
+
+            window.location.href =
+                "login.html";
+
+        }
+    );
+
+}
+
 // ========================================
 // ЗАХИСТ СТОРІНКИ "МІЙ ГАРАЖ"
 // ========================================
@@ -6882,6 +7103,66 @@ const cancelExpenseButton =
     document.getElementById(
         "cancel-expense-button"
     );
+
+const expenseCategorySelect =
+    document.getElementById(
+        "expense-category"
+    );
+
+const insuranceNextDateField =
+    document.getElementById(
+        "insurance-next-date-field"
+    );
+
+const expenseNextInsuranceDate =
+    document.getElementById(
+        "expense-next-insurance-date"
+    );
+
+
+function updateInsuranceNextDateField() {
+
+    if (
+        !expenseCategorySelect ||
+        !insuranceNextDateField
+    ) {
+        return;
+    }
+
+
+    const isInsurance =
+        expenseCategorySelect.value ===
+        "insurance";
+
+
+    insuranceNextDateField.hidden =
+        !isInsurance;
+
+
+    if (
+        !isInsurance &&
+        expenseNextInsuranceDate
+    ) {
+
+        expenseNextInsuranceDate.value =
+            "";
+
+    }
+
+}
+
+
+if (expenseCategorySelect) {
+
+    expenseCategorySelect.addEventListener(
+        "change",
+        updateInsuranceNextDateField
+    );
+
+    updateInsuranceNextDateField();
+
+}
+
     // ID витрати, яку зараз редагуємо.
 // null = створюємо нову витрату.
 let editingExpenseId = null;
@@ -6927,6 +7208,8 @@ if (saveExpenseButton) {
             if (expenseForm) {
                 expenseForm.reset();
             }
+
+updateInsuranceNextDateField();            
 
 
             // Автоматично ставимо сьогоднішню дату
@@ -7055,6 +7338,13 @@ if (expenseForm) {
                     .getElementById("expense-category")
                     .value;
 
+const nextInsuranceDate =
+    document
+        .getElementById(
+            "expense-next-insurance-date"
+        )
+        ?.value || "";                    
+
             const mileage =
                 document
                     .getElementById("expense-mileage")
@@ -7087,6 +7377,18 @@ if (expenseForm) {
                 return;
 
             }
+
+if (
+    category === "insurance" &&
+    !nextInsuranceDate
+) {
+
+    alert(
+        "Вкажіть дату наступного страхування."
+    );
+
+    return;
+}            
 
 
             const saveExpenseButton =
@@ -7122,6 +7424,12 @@ if (expenseForm) {
 
     category:
         category || null,
+
+next_insurance_date:
+        category === "insurance" &&
+        nextInsuranceDate
+            ? nextInsuranceDate
+            : null,        
 
     mileage:
         mileage
@@ -7544,6 +7852,15 @@ editExpenseButton.addEventListener(
             .getElementById("expense-category")
             .value =
             expense.category || "";
+
+if (expenseNextInsuranceDate) {
+
+    expenseNextInsuranceDate.value =
+        expense.next_insurance_date || "";
+
+}
+
+updateInsuranceNextDateField();            
 
         document
             .getElementById("expense-mileage")
@@ -12686,16 +13003,22 @@ async function loadCarOverviewSummary() {
             "overview-history-count"
         );
 
+const nextInsuranceElement =
+    document.getElementById(
+        "overview-next-insurance"
+    );        
+
 
     // Цей код працює тільки на car.html
     if (
-        !nextServiceElement ||
-        !lastEventElement ||
-        !totalCostElement ||
-        !historyCountElement
-    ) {
-        return;
-    }
+    !nextServiceElement ||
+    !lastEventElement ||
+    !totalCostElement ||
+    !historyCountElement ||
+    !nextInsuranceElement
+) {
+    return;
+}
 
 
     const params =
@@ -12807,6 +13130,188 @@ async function loadCarOverviewSummary() {
 
         const charges =
     chargesResult.data || [];
+
+// ========================================
+// НАСТУПНЕ СТРАХУВАННЯ
+// ========================================
+
+const insuranceExpenses =
+    expenses
+        .filter(
+            function (item) {
+
+                return (
+                    item.category ===
+                        "insurance" &&
+                    item.next_insurance_date
+                );
+
+            }
+        )
+        .sort(
+            function (a, b) {
+
+                return (
+                    new Date(
+                        a.next_insurance_date +
+                        "T00:00:00"
+                    ) -
+                    new Date(
+                        b.next_insurance_date +
+                        "T00:00:00"
+                    )
+                );
+
+            }
+        );
+
+
+const insuranceToday =
+    new Date();
+
+insuranceToday.setHours(
+    0,
+    0,
+    0,
+    0
+);
+
+
+let nearestInsurance =
+    insuranceExpenses.find(
+        function (item) {
+
+            const date =
+                new Date(
+                    item.next_insurance_date +
+                    "T00:00:00"
+                );
+
+            return date >=
+                insuranceToday;
+
+        }
+    );
+
+
+if (
+    !nearestInsurance &&
+    insuranceExpenses.length > 0
+) {
+
+    nearestInsurance =
+        insuranceExpenses[
+            insuranceExpenses.length - 1
+        ];
+
+}
+
+
+if (!nearestInsurance) {
+
+    nextInsuranceElement.textContent =
+        "Не вказано";
+
+} else {
+
+    const insuranceDate =
+        new Date(
+            nearestInsurance
+                .next_insurance_date +
+            "T00:00:00"
+        );
+
+
+    const remainingInsuranceDays =
+        Math.round(
+            (
+                insuranceDate -
+                insuranceToday
+            ) /
+            86400000
+        );
+
+
+    function insuranceDayWord(
+        days
+    ) {
+
+        const number =
+            Math.abs(days);
+
+        const lastTwo =
+            number % 100;
+
+        const lastOne =
+            number % 10;
+
+
+        if (
+            lastTwo >= 11 &&
+            lastTwo <= 14
+        ) {
+            return "днів";
+        }
+
+
+        if (lastOne === 1) {
+            return "день";
+        }
+
+
+        if (
+            lastOne >= 2 &&
+            lastOne <= 4
+        ) {
+            return "дні";
+        }
+
+
+        return "днів";
+
+    }
+
+
+    if (
+        remainingInsuranceDays > 0
+    ) {
+
+        nextInsuranceElement.textContent =
+            "через " +
+            remainingInsuranceDays
+                .toLocaleString("uk-UA") +
+            " " +
+            insuranceDayWord(
+                remainingInsuranceDays
+            );
+
+    } else if (
+        remainingInsuranceDays === 0
+    ) {
+
+        nextInsuranceElement.textContent =
+            "Потрібно оновити сьогодні";
+
+    } else {
+
+        const overdueDays =
+            Math.abs(
+                remainingInsuranceDays
+            );
+
+
+        nextInsuranceElement.textContent =
+            "прострочено на " +
+            overdueDays
+                .toLocaleString("uk-UA") +
+            " " +
+            insuranceDayWord(
+                overdueDays
+            );
+
+    }
+
+}    
 
 
     // ========================================
@@ -19709,3 +20214,275 @@ if (
     );
 
 }
+
+// ========================================
+// PWA — КНОПКА ВСТАНОВЛЕННЯ
+// ========================================
+
+let deferredInstallPrompt = null;
+
+
+const installPwaButton =
+    document.getElementById(
+        "install-pwa-button"
+    );
+
+
+function isPwaInstalled() {
+
+    return (
+        window.matchMedia(
+            "(display-mode: standalone)"
+        ).matches ||
+        window.navigator.standalone === true
+    );
+
+}
+
+
+if (installPwaButton) {
+
+    if (isPwaInstalled()) {
+
+        installPwaButton.hidden =
+            true;
+
+    } else {
+
+        installPwaButton.hidden =
+            false;
+
+    }
+
+}
+
+
+window.addEventListener(
+    "beforeinstallprompt",
+    function (event) {
+
+        event.preventDefault();
+
+        deferredInstallPrompt =
+            event;
+
+
+        if (
+            installPwaButton &&
+            !isPwaInstalled()
+        ) {
+
+            installPwaButton.hidden =
+                false;
+
+        }
+
+    }
+);
+
+
+if (installPwaButton) {
+
+    installPwaButton.addEventListener(
+        "click",
+        async function () {
+
+            if (isPwaInstalled()) {
+
+                installPwaButton.hidden =
+                    true;
+
+                return;
+            }
+
+
+            if (deferredInstallPrompt) {
+
+                deferredInstallPrompt.prompt();
+
+
+                const {
+                    outcome
+                } =
+                    await deferredInstallPrompt
+                        .userChoice;
+
+
+                deferredInstallPrompt =
+                    null;
+
+
+                if (
+                    outcome === "accepted"
+                ) {
+
+                    installPwaButton.hidden =
+                        true;
+
+                }
+
+                return;
+            }
+
+
+            const isAppleDevice =
+                /iphone|ipad|ipod/i.test(
+                    navigator.userAgent
+                );
+
+
+            if (isAppleDevice) {
+
+                alert(
+                    "Щоб встановити АвтоПомічник на iPhone або iPad:\n\n" +
+                    "1. Відкрийте сайт у Safari.\n" +
+                    "2. Натисніть «Поділитися».\n" +
+                    "3. Оберіть «Додати на початковий екран»."
+                );
+
+                return;
+            }
+
+
+            alert(
+                "Якщо вікно встановлення не з'явилося автоматично:\n\n" +
+                "Відкрийте меню браузера ⋮ і виберіть " +
+                "«Встановити застосунок» або «Додати на головний екран»."
+            );
+
+        }
+    );
+
+}
+
+
+window.addEventListener(
+    "appinstalled",
+    function () {
+
+        deferredInstallPrompt =
+            null;
+
+
+        if (installPwaButton) {
+
+            installPwaButton.hidden =
+                true;
+
+        }
+
+    }
+);
+
+
+// ========================================
+// ГАЛЕРЕЯ — ПОВНИЙ ПЕРЕГЛЯД СКРІНШОТІВ
+// ========================================
+
+const previewImages =
+    document.querySelectorAll(
+        ".app-preview-card img"
+    );
+
+
+previewImages.forEach(
+    function (previewImage) {
+
+        previewImage.addEventListener(
+            "click",
+            function () {
+
+                const lightbox =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                lightbox.className =
+                    "preview-lightbox";
+
+
+                const fullImage =
+                    document.createElement(
+                        "img"
+                    );
+
+
+                fullImage.src =
+                    previewImage.src;
+
+                fullImage.alt =
+                    previewImage.alt;
+
+
+                const closeButton =
+                    document.createElement(
+                        "button"
+                    );
+
+
+                closeButton.type =
+                    "button";
+
+                closeButton.className =
+                    "preview-lightbox-close";
+
+                closeButton.textContent =
+                    "×";
+
+
+                lightbox.appendChild(
+                    fullImage
+                );
+
+                lightbox.appendChild(
+                    closeButton
+                );
+
+
+                document.body.appendChild(
+                    lightbox
+                );
+
+
+                document.body.style.overflow =
+                    "hidden";
+
+
+                function closeLightbox() {
+
+                    lightbox.remove();
+
+                    document.body.style.overflow =
+                        "";
+
+                }
+
+
+                closeButton.addEventListener(
+                    "click",
+                    closeLightbox
+                );
+
+
+                lightbox.addEventListener(
+                    "click",
+                    function (event) {
+
+                        if (
+                            event.target ===
+                            lightbox
+                        ) {
+
+                            closeLightbox();
+
+                        }
+
+                    }
+                );
+
+            }
+        );
+
+    }
+);
