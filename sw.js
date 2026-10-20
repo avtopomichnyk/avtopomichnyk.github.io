@@ -1,5 +1,5 @@
 const CACHE_NAME =
-    "avtopomichnyk-v2";
+    "avtopomichnyk-v3";
 
 
 const STATIC_FILES = [
@@ -95,76 +95,65 @@ self.addEventListener(
 // ЗАПИТИ САЙТУ
 // ========================================
 
-self.addEventListener(
-    "fetch",
-    function (event) {
+self.addEventListener("fetch", function (event) {
 
-        const request =
-            event.request;
+    const request = event.request;
 
-
-        if (
-            request.method !== "GET"
-        ) {
-            return;
-        }
-
-
-        const requestUrl =
-            new URL(
-                request.url
-            );
-
-
-        // Supabase, Google, CDN тощо
-        // service worker не кешуємо
-        if (
-            requestUrl.origin !==
-            self.location.origin
-        ) {
-            return;
-        }
-
-
-        event.respondWith(
-
-            fetch(request)
-                .then(
-                    function (response) {
-
-                        const responseCopy =
-                            response.clone();
-
-
-                        caches
-                            .open(CACHE_NAME)
-                            .then(
-                                function (cache) {
-
-                                    cache.put(
-                                        request,
-                                        responseCopy
-                                    );
-
-                                }
-                            );
-
-
-                        return response;
-
-                    }
-                )
-                .catch(
-                    function () {
-
-                        return caches.match(
-                            request
-                        );
-
-                    }
-                )
-
-        );
-
+    if (request.method !== "GET") {
+        return;
     }
-);
+
+    const requestUrl = new URL(request.url);
+
+    // Зовнішні запити не перехоплюємо
+    if (requestUrl.origin !== self.location.origin) {
+        return;
+    }
+
+    // Сторінки авторизації не кешуємо
+    const authPages = [
+        "/login.html",
+        "/register.html",
+        "/reset-password.html",
+        "/garage.html"
+    ];
+
+    if (authPages.includes(requestUrl.pathname)) {
+        return;
+    }
+
+    event.respondWith(
+
+        fetch(request)
+            .then(async function (response) {
+
+                if (response.ok) {
+
+                    const cache = await caches.open(CACHE_NAME);
+
+                    await cache.put(
+                        request,
+                        response.clone()
+                    );
+
+                }
+
+                return response;
+
+            })
+            .catch(async function () {
+
+                const cachedResponse =
+                    await caches.match(request);
+
+                if (cachedResponse) {
+                    return cachedResponse;
+                }
+
+                return Response.error();
+
+            })
+
+    );
+
+});
