@@ -179,11 +179,17 @@ if (registerForm) {
 
                 options: {
 
-                    data: {
-                        name: name
-                    }
+    emailRedirectTo:
+        new URL(
+            "garage.html",
+            window.location.href
+        ).href,
 
-                }
+    data: {
+        name: name
+    }
+
+}
 
             });
 
