@@ -356,6 +356,56 @@ if (forgotPasswordLink) {
 
 }
 
+// ========================================
+// ВХІД ЧЕРЕЗ GOOGLE
+// ========================================
+
+const googleLoginButton =
+    document.getElementById("google-login-button");
+
+if (googleLoginButton) {
+
+    googleLoginButton.addEventListener(
+        "click",
+        async function () {
+
+            googleLoginButton.disabled = true;
+
+            const { error } =
+                await supabaseClient.auth.signInWithOAuth({
+
+                    provider: "google",
+
+options: {
+    redirectTo:
+        new URL(
+            "garage.html",
+            window.location.href
+        ).href
+}
+
+                });
+
+            if (error) {
+
+                console.error(
+                    "Помилка входу через Google:",
+                    error
+                );
+
+                alert(
+                    "Не вдалося увійти через Google: " +
+                    error.message
+                );
+
+                googleLoginButton.disabled = false;
+            }
+
+        }
+    );
+
+}
+
 const loginForm = document.getElementById("login-form");
 
 if (loginForm) {
