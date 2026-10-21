@@ -547,21 +547,28 @@ a {
     }
 
     .header-container {
-        min-height: 66px;
-    }
+    min-height: 66px;
+    gap: 8px;
+}
 
-    .logo {
-        font-size: 18px;
-    }
+.logo {
+    font-size: 15px;
+}
 
-    .login-button {
-        display: none;
-    }
+.header-buttons {
+    gap: 6px;
+    flex-shrink: 0;
+}
 
-    .register-button {
-        padding: 9px 12px;
-        font-size: 13px;
-    }
+.login-button {
+    padding: 8px 6px;
+    font-size: 12px;
+}
+
+.register-button {
+    padding: 8px 9px;
+    font-size: 12px;
+}
 
     .hero {
         padding: 45px 0 55px;
