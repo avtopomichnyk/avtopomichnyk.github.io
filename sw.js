@@ -1,5 +1,5 @@
 const CACHE_NAME =
-    "avtopomichnyk-v3";
+    "avtopomichnyk-v4";
 
 
 const STATIC_FILES = [
@@ -124,36 +124,56 @@ self.addEventListener("fetch", function (event) {
 
     event.respondWith(
 
-        fetch(request)
-            .then(async function (response) {
+    fetch(request)
+        .then(function (response) {
 
-                if (response.ok) {
+            // У кеш записуємо тільки успішні відповіді
+            if (response.ok) {
 
-                    const cache = await caches.open(CACHE_NAME);
+                const responseCopy = response.clone();
 
-                    await cache.put(
-                        request,
-                        response.clone()
-                    );
+                // Запис у кеш виконується окремо,
+                // щоб не блокувати завантаження сторінки
+                event.waitUntil(
 
-                }
+                    caches.open(CACHE_NAME)
+                        .then(function (cache) {
 
-                return response;
+                            return cache.put(
+                                request,
+                                responseCopy
+                            );
 
-            })
-            .catch(async function () {
+                        })
+                        .catch(function (error) {
 
-                const cachedResponse =
-                    await caches.match(request);
+                            console.warn(
+                                "Помилка кешування:",
+                                error
+                            );
 
-                if (cachedResponse) {
-                    return cachedResponse;
-                }
+                        })
 
-                return Response.error();
+                );
 
-            })
+            }
 
-    );
+            return response;
+
+        })
+        .catch(async function () {
+
+            const cachedResponse =
+                await caches.match(request);
+
+            if (cachedResponse) {
+                return cachedResponse;
+            }
+
+            return Response.error();
+
+        })
+
+);
 
 });
