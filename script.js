@@ -3963,18 +3963,36 @@ if (feedbackForm) {
 
             }
 
+// Отримуємо поточного користувача
+const { data: userData, error: userError } =
+    await supabaseClient.auth.getUser();
 
+if (userError || !userData.user) {
+
+    alert("Щоб надіслати повідомлення, увійдіть в акаунт.");
+
+    if (submitButton) {
+        submitButton.disabled = false;
+        submitButton.textContent = "Надіслати повідомлення";
+    }
+
+    return;
+}
+
+const feedbackUserId = userData.user.id;
+            
             // Зберігаємо повідомлення в Supabase
             const { error } =
                 await supabaseClient
                     .from("feedback")
                     .insert([
-                        {
-                            name: name,
-                            email: email,
-                            subject: subject,
-                            message: message
-                        }
+{
+    user_id: feedbackUserId,
+    name: name,
+    email: email,
+    subject: subject,
+    message: message
+}
                     ]);
 
 
