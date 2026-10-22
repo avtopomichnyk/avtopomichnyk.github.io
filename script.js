@@ -508,14 +508,14 @@ if (resetPasswordForm) {
             }
 
 
-            if (password.length < 6) {
+if (password.length < 8) {
 
-                alert(
-                    "Пароль повинен містити щонайменше 6 символів."
-                );
+    alert(
+        "Пароль повинен містити щонайменше 8 символів."
+    );
 
-                return;
-            }
+    return;
+}
 
 
             const {
