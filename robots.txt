@@ -13,4 +13,4 @@ Disallow: /reset-password.html
 Disallow: /login.html
 Disallow: /register.html
 
-Sitemap: https://avtopomichnyk.github.io/sitemap.xml
+Sitemap: https://avtopomichnyk.pp.ua/sitemap.xml
