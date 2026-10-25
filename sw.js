@@ -1,5 +1,5 @@
 const CACHE_NAME =
-    "avtopomichnyk-v4";
+    "avtopomichnyk-v5";
 
 
 const STATIC_FILES = [

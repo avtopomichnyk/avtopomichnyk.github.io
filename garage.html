@@ -72,6 +72,18 @@
 
             <!-- АВТОМОБІЛІ КОРИСТУВАЧА -->
 
+<!-- ПОШУК АВТОМОБІЛІВ -->
+<div class="garage-search">
+
+    <input
+        type="search"
+        id="garage-search-input"
+        placeholder="🔍 Пошук автомобіля..."
+        aria-label="Пошук автомобіля"
+    >
+
+</div>
+
 <div class="cars-list" id="cars-list">
 </div>
             <!-- ПОРОЖНІЙ ГАРАЖ -->
@@ -285,11 +297,421 @@
 
     </main>
 
+    <!-- ВІКНО ПІДТВЕРДЖЕННЯ ВИДАЛЕННЯ АКАУНТА -->
+
+    <dialog
+        id="delete-account-dialog"
+        aria-labelledby="delete-account-title"
+        aria-describedby="delete-account-description"
+    >
+
+        <div class="delete-account-modal">
+
+            <h2 id="delete-account-title">
+                Видалити акаунт?
+            </h2>
+
+            <p id="delete-account-description">
+                Увага! Після видалення акаунта всі ваші
+                автомобілі, фотографії, історія обслуговування,
+                ремонти, заправки та витрати будуть
+                видалені назавжди.
+            </p>
+
+            <label for="delete-account-confirmation">
+                Для підтвердження введіть:
+                <strong>ВИДАЛИТИ МІЙ АКАУНТ</strong>
+            </label>
+
+            <input
+                type="text"
+                id="delete-account-confirmation"
+                placeholder="Введіть фразу підтвердження"
+                autocomplete="off"
+                spellcheck="false"
+            >
+
+            <p
+                id="delete-account-status"
+                role="status"
+                aria-live="polite"
+            ></p>
+
+            <div class="delete-account-actions">
+
+                <button
+                    type="button"
+                    id="cancel-delete-account"
+                >
+                    Скасувати
+                </button>
+
+                <button
+                    type="button"
+                    id="confirm-delete-account"
+                    disabled
+                >
+                    Назавжди видалити
+                </button>
+
+            </div>
+
+        </div>
+
+    </dialog>
+
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="script.js"></script>
 
 <script src="menu.js"></script>
+
+<script>
+    // ========================================
+    // ВІКНО ВИДАЛЕННЯ АКАУНТА
+    // ========================================
+
+    (function () {
+
+        const dialog =
+            document.getElementById(
+                "delete-account-dialog"
+            );
+
+        const cancelButton =
+            document.getElementById(
+                "cancel-delete-account"
+            );
+
+        const confirmationInput =
+            document.getElementById(
+                "delete-account-confirmation"
+            );
+
+        const confirmButton =
+            document.getElementById(
+                "confirm-delete-account"
+            );
+
+        const status =
+            document.getElementById(
+                "delete-account-status"
+            );
+
+        if (
+            !dialog ||
+            !cancelButton ||
+            !confirmationInput ||
+            !confirmButton ||
+            !status
+        ) {
+            return;
+        }
+
+        // Відкриваємо вікно за посиланням із меню
+        function openDeleteAccountDialog() {
+
+            if (
+                window.location.hash !== "#delete-account" ||
+                dialog.open
+            ) {
+                return;
+            }
+
+                        // Якщо попередня операція завершилася
+            // з невідомим результатом, зберігаємо блокування
+            if (confirmationInput.disabled) {
+
+    confirmButton.disabled = true;
+
+    if (status.dataset.deletionReason === "reauth") {
+
+        status.style.color = "#b45309";
+
+        status.textContent =
+            "Для видалення акаунта потрібно вийти " +
+            "та увійти повторно. Після нового входу " +
+            "у вас буде 15 хвилин.";
+
+    } else {
+
+        status.style.color = "#dc2626";
+
+        status.textContent =
+            "Результат попередньої операції невідомий. " +
+            "Не повторюйте видалення. " +
+            "Зверніться до підтримки сервісу.";
+
+    }
+
+
+            } else {
+
+                confirmationInput.value = "";
+                confirmButton.disabled = true;
+                status.textContent = "";
+
+            }
+
+            // Закриваємо бокове меню перед відкриттям вікна
+            const menuOverlay =
+                document.getElementById(
+                    "global-menu-overlay"
+                );
+
+            if (menuOverlay) {
+                menuOverlay.hidden = true;
+            }
+
+            document.body.classList.remove(
+                "global-menu-open"
+            );
+
+            dialog.showModal();
+        }
+
+        // ========================================
+        // ПЕРЕВІРКА ФРАЗИ ПІДТВЕРДЖЕННЯ
+        // ========================================
+
+        confirmationInput.addEventListener(
+            "input",
+            function () {
+
+                const correctPhrase =
+                    "ВИДАЛИТИ МІЙ АКАУНТ";
+
+                const enteredPhrase =
+                    confirmationInput.value.trim();
+
+                confirmButton.disabled =
+                    enteredPhrase !== correctPhrase;
+
+                status.textContent = "";
+
+            }
+        );
+
+        // ========================================
+        // ТЕСТОВЕ ПІДКЛЮЧЕННЯ ДО SUPABASE
+        // БЕЗ ВИДАЛЕННЯ ДАНИХ
+        // ========================================
+
+        confirmButton.addEventListener(
+            "click",
+            async function () {
+
+                const correctPhrase =
+                    "ВИДАЛИТИ МІЙ АКАУНТ";
+
+                if (
+                    confirmationInput.value.trim() !==
+                    correctPhrase
+                ) {
+                    confirmButton.disabled = true;
+                    return;
+                }
+
+                confirmButton.disabled = true;
+confirmationInput.disabled = true;
+cancelButton.disabled = true;
+
+status.style.color = "#475569";
+                status.textContent =
+                    "Перевіряємо підключення до сервера...";
+
+                try {
+
+// Надсилаємо підтверджений запит.
+// На сервері видалення поки вимкнене.
+const { data, error } =
+    await supabaseClient.functions.invoke(
+        "delete-account",
+        {
+            body: {
+                action: "delete-account",
+                confirmation: correctPhrase
+            }
+        }
+    );
+
+                    if (error) {
+                        throw error;
+                    }
+
+                                        // Сервер підтвердив справжнє видалення
+                    if (
+                        data?.success === true &&
+                        data?.mode !== "dry-run" &&
+                        data?.message === "Акаунт успішно видалено."
+                    ) {
+
+                        confirmationInput.value = "";
+                        confirmButton.disabled = true;
+
+                        status.style.color = "#15803d";
+                        status.textContent =
+                            "Акаунт видалено. Завершуємо сеанс...";
+
+                        try {
+
+                            const { error: signOutError } =
+                                await supabaseClient.auth.signOut({
+                                    scope: "local"
+                                });
+
+                            if (signOutError) {
+                                throw signOutError;
+                            }
+
+                        } catch (signOutError) {
+
+                            console.error(
+                                "Помилка виходу після видалення:",
+                                signOutError
+                            );
+
+                            status.style.color = "#dc2626";
+                            status.textContent =
+                                "Акаунт видалено, але не вдалося " +
+                                "автоматично завершити сеанс. " +
+                                "Не повторюйте видалення.";
+
+                            return;
+                        }
+
+                        window.location.replace("index.html");
+                        return;
+                    }
+
+                    throw new Error(
+                        "Неочікувана відповідь сервера."
+                    );
+
+} catch (error) {
+
+    const response = error?.context;
+
+    const details = response?.json
+        ? await response.json().catch(() => null)
+        : null;
+
+    if (
+        response?.status === 409 &&
+        details?.mode === "dry-run" &&
+        details?.message ===
+            "Реальне видалення поки вимкнено."
+    ) {
+
+        status.style.color = "#15803d";
+
+        status.textContent =
+            "Захист працює! Сервер заблокував " +
+            "видалення. Дані залишилися без змін.";
+            confirmationInput.disabled = false;
+
+} else if (
+    response?.status === 403 &&
+    (
+        details?.code === "SESSION_TOO_OLD" ||
+        details?.code === "SESSION_REQUIRED"
+    )
+) {
+
+    status.style.color = "#b45309";
+
+    status.textContent =
+        "Для безпечного видалення акаунта " +
+        "потрібно вийти та увійти повторно. " +
+        "Після нового входу у вас буде 15 хвилин.";
+
+    status.dataset.deletionReason = "reauth";
+        confirmationInput.disabled = true;
+    confirmButton.disabled = true;
+
+} else {
+
+        console.error(
+            "Помилка перевірки видалення:",
+            error
+        );
+
+status.style.color = "#dc2626";
+
+status.textContent =
+    "Не вдалося підтвердити результат операції. " +
+    "Не натискайте повторно. " +
+    "Зверніться до підтримки сервісу.";
+
+confirmationInput.disabled = true;
+confirmButton.disabled = true;
+
+    }
+
+                } finally {
+                    cancelButton.disabled = false;
+
+                   confirmButton.disabled =
+    confirmationInput.disabled ||
+    confirmationInput.value.trim() !==
+    correctPhrase;
+
+                }
+
+            }
+        );
+
+        // Кнопка "Скасувати"
+        cancelButton.addEventListener(
+            "click",
+            function () {
+                dialog.close();
+            }
+        );
+
+        // Забороняємо закривати вікно клавішею Esc,
+// поки сервер виконує операцію
+dialog.addEventListener(
+    "cancel",
+    function (event) {
+
+        if (cancelButton.disabled) {
+            event.preventDefault();
+        }
+
+    }
+);
+
+        // Прибираємо #delete-account після закриття
+        dialog.addEventListener(
+            "close",
+            function () {
+
+                if (
+                    window.location.hash === "#delete-account"
+                ) {
+                    history.replaceState(
+                        history.state,
+                        "",
+                        window.location.pathname +
+                        window.location.search
+                    );
+                }
+            }
+        );
+
+        // Перехід за посиланням у межах сторінки
+        window.addEventListener(
+            "hashchange",
+            openDeleteAccountDialog
+        );
+
+        // Перехід із будь-якої іншої сторінки сайту
+        openDeleteAccountDialog();
+
+    })();
+</script>
+
 </body>
 
 </html>

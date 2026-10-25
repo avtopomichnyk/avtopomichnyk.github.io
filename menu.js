@@ -141,24 +141,31 @@ async function updateGlobalMenu() {
     // КОРИСТУВАЧ УВІЙШОВ
     // ========================================
 
-    if (userLinks) {
+   if (userLinks) {
 
-        userLinks.innerHTML = `
+    userLinks.innerHTML = `
 
-            <a href="garage.html">
-                🚗 Мій гараж
-            </a>
+        <a href="garage.html">
+            🚗 Мій гараж
+        </a>
 
-            <a
-                href="#"
-                data-auth-logout
-            >
-                🚪 Вийти
-            </a>
+        <a
+            href="#"
+            data-auth-logout
+        >
+            🚪 Вийти
+        </a>
 
-        `;
+        <a
+            href="garage.html#delete-account"
+            class="global-menu-delete-account-link"
+        >
+            🗑️ Видалити акаунт
+        </a>
 
-    }
+    `;
+
+}
 
 
     if (headerAuthButtons) {

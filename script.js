@@ -771,12 +771,44 @@ const carsWithPhotoUrls =
             }
         )
     );
-    
+
     // Створюємо картки автомобілів
     if (carsList) {
 
-        carsList.innerHTML = 
-        carsWithPhotoUrls.map(function (car) {
+        const searchInput =
+            document.getElementById("garage-search-input");
+
+        const filteredCars =
+            carsWithPhotoUrls.filter(function (car) {
+
+                const searchText =
+                    (searchInput?.value || "")
+                        .trim()
+                        .toLowerCase();
+
+                const carText = [
+                    car.name || "",
+                    car.make || "",
+                    car.model || ""
+                ].join(" ").toLowerCase();
+
+                return carText.includes(searchText);
+
+            });
+
+        if (filteredCars.length === 0) {
+
+            carsList.innerHTML = `
+                <div class="garage-no-results">
+                    🔍 За вашим запитом автомобілів не знайдено
+                </div>
+            `;
+
+            return;
+        }
+
+            carsList.innerHTML =
+            filteredCars.map(function (car) {
 
             const isActiveCar =
     activeCarId === car.id;
@@ -832,34 +864,53 @@ const carsWithPhotoUrls =
                                     : ""
                             }
                         </p>
-                            <div class="garage-car-actions">
+
+<div class="garage-car-actions">
 
     <button
         type="button"
         class="open-car-button"
         data-car-id="${car.id}"
+        aria-label="Відкрити автомобіль"
+        title="Відкрити автомобіль"
     >
-        Відкрити автомобіль
+        ›
     </button>
 
-    <button
-        type="button"
-        class="edit-garage-car-button"
-        data-car-id="${car.id}"
-    >
-        ✏️ Редагувати
-    </button>
+    <details class="garage-actions-menu">
 
-    <button
-        type="button"
-        class="delete-car-button"
-        data-car-id="${car.id}"
-        data-car-name="${car.name}"
-    >
-        🗑 Видалити
-    </button>
+        <summary
+            aria-label="Дії з автомобілем"
+            title="Дії з автомобілем"
+        >
+            ⋮
+        </summary>
+
+        <div class="garage-actions-dropdown">
+
+            <button
+                type="button"
+                class="edit-garage-car-button"
+                data-car-id="${car.id}"
+            >
+                ✏️ Редагувати
+            </button>
+
+            <button
+                type="button"
+                class="delete-car-button"
+                data-car-id="${car.id}"
+                data-car-name="${car.name}"
+            >
+                🗑 Видалити
+            </button>
+
+        </div>
+
+    </details>
 
 </div>
+
                     </div>
 
                 </div>
@@ -872,28 +923,75 @@ const carsWithPhotoUrls =
 }
 
 loadCars();
+
 // ========================================
-// ВІДКРИТТЯ СТОРІНКИ АВТОМОБІЛЯ
+// ПОШУК АВТОМОБІЛІВ У ГАРАЖІ
 // ========================================
+
+const garageSearchInput =
+    document.getElementById("garage-search-input");
+
+if (garageSearchInput) {
+
+    let garageSearchTimeout;
+
+    garageSearchInput.addEventListener(
+        "input",
+        function () {
+
+            clearTimeout(garageSearchTimeout);
+
+            garageSearchTimeout = setTimeout(
+                function () {
+
+                    loadCars();
+
+                },
+                250
+            );
+
+        }
+    );
+
+}
 
 document.addEventListener("click", function (event) {
 
     const openCarButton =
         event.target.closest(".open-car-button");
 
-    if (!openCarButton) {
+    const carCard =
+        event.target.closest(
+            ".garage-page #cars-list .car-card"
+        );
+
+    // Натиснули не на картку і не на стрілку
+    if (!openCarButton && !carCard) {
+        return;
+    }
+
+    // Не відкриваємо авто при роботі з меню та кнопками
+    if (
+        !openCarButton &&
+        event.target.closest(
+            ".garage-actions-menu, button, a, input, select, textarea"
+        )
+    ) {
         return;
     }
 
     // Отримуємо ID автомобіля
     const carId =
-        openCarButton.dataset.carId;
+        openCarButton?.dataset.carId ||
+        carCard?.querySelector(
+            ".open-car-button"
+        )?.dataset.carId;
 
     if (!carId) {
         return;
     }
 
-    // Відкриваємо сторінку саме цього автомобіля
+    // Відкриваємо сторінку автомобіля
     window.location.href =
         "car.html?id=" + encodeURIComponent(carId);
 
@@ -1186,7 +1284,7 @@ const carTankCapacityInput =
 const carLpgTankCapacityInput =
     document.getElementById(
         "car-lpg-tank-capacity"
-    );    
+    );
 
 const carBatteryCapacityInput =
     document.getElementById(
@@ -1358,17 +1456,17 @@ if (carForm) {
             document.getElementById("car-engine").value.trim();
 
         const tankCapacity =
-    document 
-    .getElementById("car-tank-capacity") 
-    .value; 
-    
+    document
+    .getElementById("car-tank-capacity")
+    .value;
+
 const lpgTankCapacity =
     document
         .getElementById(
             "car-lpg-tank-capacity"
         )
-        .value;    
-    
+        .value;
+
     const batteryCapacity =
     document
         .getElementById(
@@ -1382,7 +1480,7 @@ const lpgTankCapacity =
         const fuelType =
             document.getElementById("car-fuel").value;
 
-            
+
 
         const transmission =
             document.getElementById("car-transmission").value;
@@ -1416,7 +1514,7 @@ const lpgTankCapacity =
 lpg_tank_capacity:
     lpgTankCapacity
         ? Number(lpgTankCapacity)
-        : null,        
+        : null,
 
         battery_capacity:
     batteryCapacity
@@ -1511,7 +1609,7 @@ if (
 
     return;
 
-}    
+}
 
 
     // Отримуємо ID автомобіля з адреси
@@ -1558,7 +1656,7 @@ if (
 
     return;
 
-}        
+}
 
 
 // ========================================
@@ -1601,7 +1699,7 @@ if (car.photo_path) {
 
     }
 
-}    
+}
 
         const carDetails =
         document.getElementById("car-details");
@@ -1610,7 +1708,7 @@ if (car.photo_path) {
         document.getElementById("car-sections");
 
 
-    
+
 
 // ========================================
 // ЄМНОСТІ ПАЛЬНОГО / LPG / БАТАРЕЇ
@@ -1752,7 +1850,7 @@ if (car.fuel_type === "lpg") {
     `;
 
 }
-    
+
     // Показуємо дані автомобіля
     if (carDetails) {
 
@@ -2527,7 +2625,7 @@ if (completedReminderSourceId) {
             // Редагування завершено
             editingMaintenanceId = null;
 
-        
+
 
             // Очищаємо форму
             maintenanceForm.reset();
@@ -3504,7 +3602,7 @@ if (completeButton) {
             // Це НЕ редагування старого запису.
             // Ми створюватимемо нове обслуговування.
             editingMaintenanceId = null;
-            
+
             // Запам'ятовуємо ID старого обслуговування,
 // нагадування якого зараз виконуємо
 completedReminderSourceId =
@@ -3980,7 +4078,7 @@ if (userError || !userData.user) {
 }
 
 const feedbackUserId = userData.user.id;
-            
+
             // Зберігаємо повідомлення в Supabase
             const { error } =
                 await supabaseClient
@@ -5235,7 +5333,7 @@ if (saveRefuelButton) {
 
             if (refuelForm) {
                 refuelForm.reset();
-                configureRefuelFuelOptions();                
+                configureRefuelFuelOptions();
             }
 
 
@@ -5381,7 +5479,7 @@ if (refuelForm) {
             const fullTank =
     document
         .getElementById("refuel-full-tank")
-        .checked;        
+        .checked;
 
 
 // ========================================
@@ -5555,7 +5653,7 @@ if (
 
     return;
 
-}            
+}
 
 
             const saveRefuelButton =
@@ -5851,7 +5949,7 @@ const carFuelType =
     !carFuelError &&
     carFuelData
         ? carFuelData.fuel_type
-        : null;        
+        : null;
 
 
     const {
@@ -6066,7 +6164,7 @@ refuelsForConsumption.forEach(
 
     }
 );
-   
+
 // ========================================
 // ЗАГАЛЬНА СТАТИСТИКА ЗАПРАВОК
 // ========================================
@@ -6250,7 +6348,7 @@ function formatFuelStatNumber(
             }
         );
 
-}    
+}
 
 
 // Періоди, для яких вдалося
@@ -6718,7 +6816,7 @@ if (refuel.fuel_type === "lpg") {
     refuelCapacityName =
         "газового балона";
 
-}        
+}
 
 
         card.innerHTML = `
@@ -7283,7 +7381,7 @@ if (saveExpenseButton) {
                 expenseForm.reset();
             }
 
-updateInsuranceNextDateField();            
+updateInsuranceNextDateField();
 
 
             // Автоматично ставимо сьогоднішню дату
@@ -7328,7 +7426,7 @@ updateInsuranceNextDateField();
 
         }
     );
-    
+
 
 }
 
@@ -7417,7 +7515,7 @@ const nextInsuranceDate =
         .getElementById(
             "expense-next-insurance-date"
         )
-        ?.value || "";                    
+        ?.value || "";
 
             const mileage =
                 document
@@ -7462,7 +7560,7 @@ if (
     );
 
     return;
-}            
+}
 
 
             const saveExpenseButton =
@@ -7503,7 +7601,7 @@ next_insurance_date:
         category === "insurance" &&
         nextInsuranceDate
             ? nextInsuranceDate
-            : null,        
+            : null,
 
     mileage:
         mileage
@@ -7934,7 +8032,7 @@ if (expenseNextInsuranceDate) {
 
 }
 
-updateInsuranceNextDateField();            
+updateInsuranceNextDateField();
 
         document
             .getElementById("expense-mileage")
@@ -11259,7 +11357,7 @@ if (exportHistoryPdfButton) {
                     );
 
 
-                
+
 
 // ========================================
 // ВМІСТ PDF
@@ -11859,7 +11957,7 @@ function addPdfSection(
         items.length === 0
     ) {
         return;
-    }    
+    }
 
     historyTableBody.push(
 
@@ -12803,7 +12901,7 @@ if (hasHistoryData) {
 // ========================================
 // ДОКУМЕНТ PDF
 // ========================================
-                
+
 
                 const docDefinition = {
 
@@ -13080,7 +13178,7 @@ async function loadCarOverviewSummary() {
 const nextInsuranceElement =
     document.getElementById(
         "overview-next-insurance"
-    );        
+    );
 
 
     // Цей код працює тільки на car.html
@@ -13385,7 +13483,7 @@ if (!nearestInsurance) {
 
     }
 
-}    
+}
 
 
     // ========================================
@@ -13966,7 +14064,7 @@ if (
         }
     );
 
-}    
+}
 
 // ========================================
 // КНОПКА ВИДАЛЕННЯ АВТОМОБІЛЯ
@@ -14149,7 +14247,7 @@ if (
         }
     );
 
-}    
+}
 
 // ========================================
 // ВИДАЛЕННЯ ФОТО АВТОМОБІЛЯ
@@ -14541,7 +14639,7 @@ document.getElementById(
         car.fuel_type === "lpg"
             ? car.tank_capacity ?? ""
             : ""
-    );    
+    );
 
     document.getElementById(
     "edit-car-battery-capacity"
@@ -14553,7 +14651,7 @@ document.getElementById(
         ).value =
             car.fuel_type || "";
 
-updateEditCarEnergyFields();            
+updateEditCarEnergyFields();
 
         document.getElementById(
             "edit-car-transmission"
@@ -14683,7 +14781,7 @@ const lpgTankCapacity =
         .getElementById(
             "edit-car-lpg-tank-capacity"
         )
-        .value;        
+        .value;
 
         const batteryCapacity =
     document
@@ -14715,7 +14813,7 @@ const lpgTankCapacity =
                     .trim();
 
 
-            
+
 
 
             const saveEditCarButton =
@@ -14839,7 +14937,7 @@ if (selectedPhoto) {
     uploadedPhotoPath =
         photoPath;
 
-}            
+}
 
 
             const {
@@ -14854,7 +14952,7 @@ if (selectedPhoto) {
             uploadedPhotoPath
       }
     : {}
-),                        
+),
 
                         name:
                             name,
@@ -14880,7 +14978,7 @@ if (selectedPhoto) {
 lpg_tank_capacity:
     lpgTankCapacity
         ? Number(lpgTankCapacity)
-        : null,        
+        : null,
 
         battery_capacity:
     batteryCapacity
@@ -15091,7 +15189,7 @@ const editCarTankCapacityInput =
 const editCarLpgTankCapacityInput =
     document.getElementById(
         "edit-car-lpg-tank-capacity"
-    );    
+    );
 
 const editCarBatteryCapacityInput =
     document.getElementById(
@@ -17149,7 +17247,7 @@ let importedDocumentRows =
     [];
 
 let parsedImportRecords =
-    [];    
+    [];
 
 
 // ========================================
@@ -17738,7 +17836,7 @@ for (
 
     }
 
-}        
+}
 
 
     let currentType =
@@ -18011,7 +18109,7 @@ if (stoTableRowMatch) {
     return;
 
 }
-            
+
             if (!currentType) {
                 return;
             }
@@ -18179,7 +18277,7 @@ if (stoTableRowMatch) {
     line.match(
         /^Опис:\s*(.+)$/i
     );
-            
+
             if (descriptionMatch) {
 
     const descriptionText =
